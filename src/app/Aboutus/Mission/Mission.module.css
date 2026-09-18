@@ -1,0 +1,182 @@
+.mission {
+  width: 100%;
+  position: relative;
+  padding: clamp(40px, 5.88vi + 17.06px, 130px)
+    clamp(22px, 6.93vi + -5.02px, 128px) 0;
+  overflow-y: hidden;
+}
+
+.stickyContainer {
+  position: relative;
+  width: 100%;
+  height: min(42.34vw, 813px);
+  overflow-y: hidden;
+}
+
+.slide {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  overflow-y: hidden;
+}
+
+.slide:first-child {
+  z-index: 1;
+}
+
+.slide:nth-child(2) {
+  z-index: 2;
+}
+
+.content {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  gap: clamp(40px, 6.67vi + 13.98px, 142.08px);
+}
+
+.text {
+  width: min(34%, 551px);
+  flex-shrink: 1;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(8px, 0.13vi + 7.49px, 10px);
+}
+
+.text h2 {
+  margin: 0;
+  font-size: clamp(24px, 1.05vi + 19.92px, 40px);
+  font-weight: 500;
+  line-height: clamp(36px, 0.85vi + 32.69px, 49px);
+}
+
+.text p {
+  width: 100%;
+  font-family: "Poppins", sans-serif;
+  font-size: clamp(14px, 0.26vi + 12.98px, 18px);
+  font-weight: 400;
+  line-height: clamp(21px, 0.39vi + 19.47px, 27px);
+  color: #61656e;
+}
+
+.images {
+  position: relative;
+  flex: 1;
+  width: auto;
+  min-width: 0;
+  height: min(37.81vw, 726px);
+  aspect-ratio: 943 / 726;
+}
+
+.aboveImage {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 83%;
+  height: 100%;
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.bottomImage {
+  position: absolute;
+  top: 14.6%;
+  left: 0;
+  width: 43.8%;
+  height: 64.6%;
+  overflow: hidden;
+  border-radius: 8px;
+  z-index: 2;
+}
+
+.aboveImage img,
+.bottomImage img {
+  object-fit: cover;
+}
+
+@media (max-width: 640px) {
+  .mission {
+    width: 100%;
+    padding: 40px 22px 0;
+  }
+
+  .stickyContainer {
+    position: relative;
+    width: 100%;
+    height: 489px;
+    overflow: hidden;
+  }
+
+  .slide {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 489px;
+  }
+
+  .slide + .slide {
+    margin-top: 0;
+  }
+
+  .content {
+    width: 100%;
+    height: 489px;
+    display: block;
+    position: relative;
+    padding-top: 0;
+  }
+
+  .text {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 3;
+    gap: 8px;
+  }
+
+  .text h2 {
+    margin: 0;
+    font-family: "Poppins", sans-serif;
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 36px;
+    color: #414141;
+  }
+
+  .text p {
+    width: 100%;
+    font-family: "Poppins", sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 21px;
+    color: #61656e;
+  }
+
+  .images {
+    position: absolute;
+    top: 189px;
+    left: 0;
+    width: 100%;
+    height: 300px;
+  }
+
+  .aboveImage {
+    top: 0;
+    right: 0;
+    width: 77%;
+    height: 300px;
+    border-radius: 4px;
+  }
+
+  .bottomImage {
+    top: 60px;
+    left: 0;
+    width: 47%;
+    height: 181px;
+    border-radius: 4px;
+  }
+}

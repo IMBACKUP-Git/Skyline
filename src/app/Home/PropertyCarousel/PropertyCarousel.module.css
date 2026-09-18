@@ -1,0 +1,241 @@
+.section {
+  width: 100%;
+  overflow: hidden;
+  background: #fff;
+  margin-top: clamp(80px, 8.65vw, 166px);
+  display: flex;
+  flex-direction: column;
+  gap: clamp(20px, 1.3vw, 25px);
+}
+
+.heading {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(8px, 0.625vw, 12px);
+}
+
+.heading h2 {
+  margin: 0;
+  color: #414141;
+  font-size: clamp(24px, 2.08vw, 40px);
+  font-weight: 500;
+}
+
+.heading p {
+  margin: 0;
+  color: #61656e;
+  font-size: clamp(14px, 0.94vw, 18px);
+  line-height: 1.5;
+  font-family: "Poppins", sans-serif;
+}
+
+.carousel {
+  position: relative;
+  width: 100%;
+  margin-top: clamp(30px, 3.23vw, 62px);
+  --slide-width: clamp(450px, 39.95vw, 767px);
+  --arrow-offset: clamp(42px, 4.65vw, 67px);
+}
+
+.viewport {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.container {
+  display: flex;
+  align-items: flex-start;
+  touch-action: pan-y pinch-zoom;
+}
+
+.slide {
+  position: relative;
+  flex: 0 0 var(--slide-width);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.slideInner {
+  width: var(--slide-width);
+  height: auto;
+  aspect-ratio: 767 / 564;
+  position: relative;
+  --scale: 1;
+  --opacity: 1;
+  --fade-opacity: 0;
+  transform: scale(var(--scale));
+  transform-origin: center center;
+  opacity: var(--opacity);
+}
+
+.card {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(18px, 1.35vw, 26px);
+}
+
+.imageWrapper {
+  position: relative;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 767 / 474;
+  overflow: hidden;
+  border-radius: clamp(8px, 1.25vw, 24px);
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(6px, 0.42vw, 8px);
+}
+
+.topInfo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.topInfo h3 {
+  font-size: clamp(16px, 1.25vw, 24px);
+  font-weight: 500;
+}
+
+.price {
+  font-size: clamp(16px, 1.25vw, 24px);
+  font-weight: 400;
+  white-space: nowrap;
+  font-family: "Poppins", sans-serif;
+}
+
+.bottomInfo {
+  display: flex;
+  justify-content: space-between;
+  font-size: clamp(14px, 0.94vw, 18px);
+  color: #61656e;
+  font-weight: 400;
+  font-family: "Poppins", sans-serif;
+}
+
+.details {
+  font-size: clamp(14px, 0.94vw, 18px);
+  font-weight: 400;
+  white-space: nowrap;
+  color: #61656e;
+}
+
+.arrow {
+  position: absolute;
+  width: clamp(20px, 2.03vw, 39px);
+  height: clamp(20px, 2.03vw, 39px);
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #000;
+  color: #fff;
+  cursor: pointer;
+  z-index: 20;
+  top: calc((var(--slide-width) * 474 / 767) / 2);
+  transform: translate(-50%, -50%);
+}
+
+.prevArrow {
+  left: var(--prev-arrow-left);
+}
+
+.nextArrow {
+  left: var(--next-arrow-left);
+}
+
+.arrowIcon {
+  width: clamp(6px, 0.52vw, 10px);
+  height: clamp(10px, 0.88vw, 17px);
+}
+
+@media (max-width: 640px) {
+  .section {
+    margin-top: 80px;
+  }
+
+  .heading {
+    margin-bottom: 0;
+    padding: 0 24px;
+  }
+
+  .heading h2 {
+    font-size: 24px;
+    font-weight: 400;
+  }
+
+  .heading p {
+    margin-top: 10px;
+    font-size: 14px;
+    line-height: 1.5;
+  }
+
+  .carousel {
+    margin-top: 30px;
+    --slide-width: 307px;
+  }
+
+  .slide {
+    flex: 0 0 var(--slide-width);
+  }
+
+  .slideInner {
+    width: 307px;
+    width: var(--slide-width);
+  }
+
+  .imageWrapper {
+    width: 307px;
+    height: 169px;
+    border-radius: 8px;
+  }
+
+  .topInfo h3,
+  .price {
+    font-size: 14px;
+  }
+
+  .bottomInfo,
+  .details {
+    font-size: 12px;
+  }
+
+  .imageFade {
+    display: none;
+  }
+}
+
+.imageFade {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: clamp(160px, 14.58vw, 280px);
+  z-index: 10;
+  pointer-events: none;
+}
+
+.leftFade {
+  left: 0;
+  background: linear-gradient(to right, #fff 0%, rgba(255, 255, 255, 0) 100%);
+}
+
+.rightFade {
+  right: 0;
+  background: linear-gradient(to left, #fff 0%, rgba(255, 255, 255, 0) 100%);
+}

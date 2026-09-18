@@ -1,0 +1,128 @@
+.hero {
+  position: relative;
+  width: 100%;
+  height: clamp(803px, 56.25vw, 1080px);
+  overflow: hidden;
+  --hero-shift: 0px;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("./heroImage.png");
+  background-size: cover;
+  background-position: center calc(80% + var(--hero-shift));
+  background-repeat: no-repeat;
+  z-index: 0;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.05) 85%,
+    rgba(255, 255, 255, 0.95) 100%
+  );
+}
+
+.heroContent {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  padding-top: clamp(70px, 5vw, 93px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  color: #ffffff;
+  gap: 30px;
+}
+
+.heroTitle {
+  width: min(832px, calc(100% - 80px));
+  font-size: clamp(48px, 3.75vw, 72px);
+  font-weight: 400;
+  line-height: 100%;
+  letter-spacing: 0;
+  text-align: center;
+  color: #ffffff;
+}
+
+.heroDescription {
+  width: min(802px, calc(100% - 100px));
+  height: auto;
+  font-family: "Poppins", sans-serif;
+  font-size: clamp(16px, 1.04vw, 20px);
+  font-weight: 400;
+  line-height: 30px;
+  text-align: center;
+  color: #fff;
+}
+
+.heroButton {
+  width: clamp(220px, 13.8vw, 265px);
+  height: clamp(45px, 2.5vw, 48px);
+  padding: 8px 16px;
+  border: none;
+  border-radius: 80px;
+  background: #fff;
+  font-family: "Poppins", sans-serif;
+  cursor: pointer;
+  font-size: clamp(16px, 1.04vw, 20px);
+  font-weight: 500;
+  line-height: 100%;
+  text-decoration: none;
+  color: black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+@media (max-width: 640px) {
+  .hero {
+    height: 803px;
+  }
+
+  .hero::before {
+    background-size: auto 1000px;
+    background-position: 80% calc(-165px + var(--hero-shift));
+    background-repeat: no-repeat;
+  }
+
+  .hero::after {
+    display: none;
+  }
+
+  .heroContent {
+    padding-top: 58px;
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
+  .heroTitle {
+    width: 100%;
+    font-size: 30px;
+    line-height: 100%;
+    font-family: "Poppins", sans-serif;
+  }
+
+  .heroDescription {
+    width: 100%;
+    height: auto;
+    margin-top: 12px;
+    font-size: 14px;
+    line-height: 21px;
+  }
+
+  .heroButton {
+    width: 174px;
+    height: 43px;
+    margin-top: 20px;
+    padding: 8px 16px;
+    font-size: 14px;
+  }
+}

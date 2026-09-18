@@ -1,0 +1,167 @@
+.trackRecord {
+  width: 100%;
+  margin-top: clamp(40px, 1.44vi + 34.39px, 62px);
+}
+
+.content {
+  width: clamp(343px, 57.52vi + 118.69px, 1223px);
+  height: auto;
+  margin: 0 auto;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  color: #414141;
+
+  gap: clamp(40px, 5.42vw, 78px);
+}
+
+.top {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.top h2 {
+  margin: 0;
+
+  font-size: clamp(24px, 1.05vi + 19.92px, 40px);
+  font-weight: 500;
+  line-height: 1.2;
+  text-align: center;
+}
+
+.description {
+  width: 100%;
+
+  font-family: "Poppins", sans-serif;
+  font-size: clamp(14px, 0.26vi + 12.98px, 18px);
+  font-weight: 400;
+  line-height: 1.35;
+  text-align: center;
+  color: #61656e;
+}
+
+.bottom {
+  width: 100%;
+  margin: 0;
+}
+
+.stats {
+  width: 100%;
+  gap: clamp(40px, 9.15vi + 4.31px, 180px);
+
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+}
+
+.stat h3 {
+  margin: 0;
+
+  font-size: clamp(18px, 1.96vi + 10.35px, 48px);
+  font-weight: 500;
+  line-height: 1;
+}
+
+.stat p {
+  margin: 1px 0 0;
+
+  font-family: "Poppins", sans-serif;
+  font-size: clamp(14px, 0.26vi + 12.98px, 18px);
+  font-weight: 400;
+  line-height: 1;
+  color: #61656e;
+}
+
+@media (max-width: 640px) {
+  .trackRecord {
+    margin: 40px 0 0;
+    padding: 0 24px;
+    box-sizing: border-box;
+  }
+
+  .content {
+    width: 100%;
+    margin: 0;
+
+    align-items: flex-start;
+    gap: 40px;
+  }
+
+  .top {
+    width: 100%;
+    gap: 12px;
+  }
+
+  .top h2 {
+    font-size: 24px;
+    line-height: 1.2;
+    text-align: left;
+    font-family: "Poppins", sans-serif;
+  }
+
+  .description {
+    width: 100%;
+    margin: 0;
+
+    font-size: 14px;
+    line-height: 1.4;
+    text-align: left;
+  }
+
+  .bottom {
+    width: 100%;
+  }
+
+  .stats {
+    width: 100%;
+    margin: 0;
+
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .stat {
+    width: 100%;
+    min-height: 42px;
+    margin: 0;
+    padding: 0 0 12px;
+
+    flex-direction: row;
+    align-items: center;
+
+    gap: 24px;
+    text-align: left;
+
+    border-bottom: 1px solid #d6d6d6;
+  }
+
+  .stat + .stat {
+    padding-top: 12px;
+  }
+
+  .stat h3 {
+    margin: 0;
+    min-width: 34px;
+
+    font-size: 18px;
+    line-height: 1;
+  }
+
+  .stat p {
+    margin: 0;
+
+    font-size: 14px;
+    line-height: 1.2;
+  }
+}

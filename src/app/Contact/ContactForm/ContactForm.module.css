@@ -1,0 +1,183 @@
+.contactForm {
+  width: 100%;
+  height: clamp(600px, 48.59vw, 933px);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.imageWrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.image {
+  object-fit: cover;
+  object-position: 85%;
+}
+
+.formWrapper {
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  padding: clamp(30px, 5.83vw, 112px) clamp(24px, 7.08vw, 136px);
+  background: #f8f8f8;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(24px, 1.88vw, 36px);
+  justify-content: center;
+  align-items: start;
+}
+
+.heading {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(3px, 0.21vw, 4px);
+}
+
+.heading h1 {
+  margin: 0;
+  font-size: clamp(30px, 2.08vw, 40px);
+  line-height: clamp(30px, 2.08vw, 40px);
+  font-weight: 500;
+  color: #414141;
+}
+
+.heading p {
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+  font-size: clamp(14px, 0.83vw, 18px);
+  line-height: clamp(18px, 1.25vw, 27px);
+  font-weight: 400;
+  color: #61656e;
+}
+
+.form {
+  width: 100%;
+  max-width: 688px;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(16px, 1.25vw, 24px);
+}
+
+.fields {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: clamp(8px, 0.625vw, 12px);
+  row-gap: clamp(16px, 1.25vw, 30px);
+}
+
+.field,
+.messageField {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(6px, 0.57vw, 11px);
+}
+
+.field label,
+.messageField label {
+  font-family: "Poppins", sans-serif;
+  font-size: clamp(12px, 0.94vw, 18px);
+  line-height: clamp(18px, 1.09vw, 21px);
+  font-weight: 400;
+  color: #414141;
+}
+
+.field input {
+  width: 100%;
+  height: clamp(32px, 2.08vw, 40px);
+  padding: clamp(6px, 0.42vw, 8px) clamp(10px, 0.625vw, 12px);
+  box-sizing: border-box;
+  border: 1px solid #c9c9c9;
+  border-radius: 4px;
+  background: transparent;
+  outline: none;
+  font-family: "Poppins", sans-serif;
+  font-size: clamp(10px, 0.625vw, 12px);
+}
+
+.messageField {
+  grid-column: 1 / -1;
+}
+
+.messageField textarea {
+  width: 100%;
+  height: clamp(134px, 8.33vw, 160px);
+  padding: clamp(10px, 0.625vw, 12px);
+  box-sizing: border-box;
+  resize: none;
+  border: 1px solid #c9c9c9;
+  border-radius: 4px;
+  background: transparent;
+  outline: none;
+  font-family: "Poppins", sans-serif;
+  font-size: clamp(10px, 0.625vw, 12px);
+}
+
+.form button {
+  width: clamp(174px, 9vw, 200px);
+  height: clamp(43px, 2.2vw, 48px);
+  padding: 8px 16px;
+  border: 1px solid #000000;
+  border-radius: 80px;
+  font-family: "Poppins", sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: clamp(14px, 0.83vw, 16px);
+  line-height: clamp(21px, 1.25vw, 24px);
+  text-align: center;
+  letter-spacing: -0.03em;
+  color: #414141;
+  background: transparent;
+  align-self: flex-end;
+  cursor: pointer;
+}
+
+@media (max-width: 640px) {
+  .contactForm {
+    height: auto;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .imageWrapper {
+    height: 331px;
+  }
+
+  .formWrapper {
+    height: auto;
+    padding: 30px 24px 0;
+    background: transparent;
+  }
+
+  .form {
+    max-width: none;
+  }
+
+  .fields {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .form button {
+    width: 174px;
+    height: 43px;
+    font-size: 14px;
+    line-height: 21px;
+    align-self: center;
+  }
+
+  .heading h1 {
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 36px;
+  }
+
+  .heading p {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 21px;
+  }
+}

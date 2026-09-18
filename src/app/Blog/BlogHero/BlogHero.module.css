@@ -1,0 +1,181 @@
+.hero {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: clamp(25px, 2.73vw, 60px);
+  margin-top: clamp(24px, 3.65vw, 70px);
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: clamp(4px, 0.63vw, 12px);
+  text-align: center;
+}
+
+.header h1 {
+  width: clamp(306px, 28.56vi + 194.61px, 743px);
+  margin: 0;
+  font-size: clamp(30px, 3.75vw, 72px);
+  font-weight: 400;
+  line-height: 1;
+  color: #414141;
+}
+
+.header p {
+  width: clamp(343px, 41.93vw, 805px);
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+  font-size: clamp(14px, 1.04vw, 20px);
+  font-weight: 400;
+  line-height: clamp(21px, 1.56vw, 30px);
+  color: #61656e;
+}
+
+.featured {
+  width: min(1679px, calc(100% - clamp(48px, 12.5vw, 240px)));
+  height: clamp(421px, 30.1vw, 578px);
+  display: flex;
+  gap: clamp(31px, 1.98vw, 38px);
+}
+
+.info {
+  width: clamp(343px, 8.3vi + 310.63px, 470px);
+  height: 100%;
+  padding: clamp(24px, 3.44vw, 66px) clamp(26px, 2.97vw, 57px)
+    clamp(16px, 2.14vw, 41px) clamp(26px, 1.98vw, 38px);
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  background: #edf7ff;
+  border-radius: clamp(8px, 1.35vw, 26px);
+  gap: clamp(21px, 7.45vw, 143px);
+}
+
+.infoContent {
+  width: clamp(291px, 19.53vw, 375px);
+  display: flex;
+  flex-direction: column;
+  gap: clamp(12px, 0.63vw, 12px);
+}
+
+.infoContent h2 {
+  margin: 0;
+  font-size: clamp(24px, 2.08vw, 40px);
+  font-weight: 400;
+  line-height: clamp(36px, 2.55vw, 49px);
+  color: #414141;
+}
+
+.infoContent p {
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+  font-size: clamp(14px, 0.94vw, 18px);
+  font-weight: 400;
+  line-height: clamp(21px, 1.41vw, 27px);
+  color: #61656e;
+}
+
+.info a {
+  width: clamp(154px, 10vw, 192px);
+  height: clamp(31px, 2.58vw, 49.59px);
+  padding: 8px 16px;
+  border: 1px solid #414141;
+  border-radius: 80px;
+  background: transparent;
+  font-family: "Poppins", sans-serif;
+  font-size: clamp(12px, 1.04vw, 20px);
+  line-height: clamp(18px, 1.56vw, 30px);
+  cursor: pointer;
+  text-decoration: none;
+  color: black;
+  text-align: center;
+}
+
+.image {
+  position: relative;
+  flex: 1;
+  height: clamp(421px, 29.69vw, 570px);
+  overflow: hidden;
+  border-radius: clamp(8px, 1.25vw, 24px);
+}
+
+.image img {
+  object-fit: cover;
+}
+
+@media (max-width: 640px) {
+  .hero {
+    margin-top: 24px;
+    gap: 25px;
+  }
+
+  .header {
+    width: calc(100% - 48px);
+  }
+
+  .header h1 {
+    width: 306px;
+    max-width: 100%;
+    font-family: "Poppins", sans-serif;
+    font-size: 30px;
+    line-height: 1;
+  }
+
+  .header p {
+    width: 100%;
+    font-size: 14px;
+    line-height: 21px;
+  }
+
+  .featured {
+    width: calc(100% - 48px);
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 31px;
+  }
+
+  .image {
+    order: 1;
+    width: 100%;
+    height: 421px;
+    flex: none;
+    border-radius: 8px;
+  }
+
+  .info {
+    order: 2;
+    width: 100%;
+    height: 305px;
+    padding: 24px 26px 16px;
+    border-radius: 8px;
+    gap: 21px;
+  }
+
+  .infoContent {
+    width: 291px;
+    max-width: 100%;
+    gap: 21px;
+  }
+
+  .infoContent h2 {
+    font-family: "Poppins", sans-serif;
+    font-size: 24px;
+    line-height: 36px;
+  }
+
+  .infoContent p {
+    font-size: 14px;
+    line-height: 21px;
+  }
+
+  .info button {
+    width: 154px;
+    height: 31px;
+    font-size: 12px;
+    line-height: 18px;
+  }
+}

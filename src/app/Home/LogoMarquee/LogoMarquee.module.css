@@ -1,0 +1,61 @@
+.marquee {
+  width: 100%;
+  height: 85px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  background: #ffffff;
+  margin-top: clamp(80px, 8.33vw, 160px);
+}
+
+.track {
+  display: flex;
+  gap: 80px;
+}
+
+.logoGroup {
+  display: flex;
+  align-items: center;
+  gap: 80px;
+  flex-shrink: 0;
+}
+
+.logo {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+}
+
+.logo:nth-child(1) img {
+  width: auto;
+  height: clamp(35.86px, 2.34vw, 45px);
+  filter: grayscale(1);
+}
+
+.logo:nth-child(2) img {
+  width: auto;
+  height: clamp(61px, 3.96vw, 76px);
+}
+
+.logo:nth-child(3) img {
+  width: auto;
+  height: clamp(46px, 4.43vw, 85px);
+  filter: grayscale(1);
+}
+
+.logo:nth-child(4) img {
+  width: auto;
+  height: clamp(54px, 3.7vw, 71px);
+}
+
+.logo:nth-child(5) img {
+  width: auto;
+  height: clamp(61px, 4.11vw, 79px);
+  transform: scale(2);
+}
+
+.logo:nth-child(6) img {
+  width: auto;
+  height: clamp(44px, 4.01vw, 77px);
+  filter: grayscale(1);
+}
