@@ -1,9 +1,13 @@
 .blogs {
-  width: auto;
+  width: 100%;
+  padding-top: clamp(40px, 7.84vw + 9.41px, 160px);
+  padding-right: clamp(24px, 6.09vw, 117px);
+  padding-bottom: clamp(135px, 0.26vw + 133.98px, 139px);
+  padding-left: clamp(24px, 6.15vw, 118px);
+  box-sizing: border-box;
+
   display: flex;
   flex-direction: column;
-  margin: clamp(40px, 7.84vi + 9.41px, 160px)
-    clamp(24px, 6.27vi + -0.47px, 120px) clamp(135px, 0.26vi + 133.98px, 139px);
   gap: clamp(48px, 3.125vw, 60px);
 }
 
@@ -16,7 +20,7 @@
 
 .filters button {
   height: clamp(40px, 2.5vw, 48px);
-  padding: clamp(6px, 0.13vi + 5.49px, 8px) clamp(12px, 1.25vw, 24px);
+  padding: clamp(6px, 0.13vw + 5.49px, 8px) clamp(12px, 1.25vw, 24px);
   box-sizing: border-box;
   border: 1px solid #c9c9c9;
   border-radius: 44px;
@@ -69,8 +73,8 @@
 
 .image span {
   position: absolute;
-  margin-top: clamp(13px, 0.73vw, 14px);
-  margin-left: clamp(15px, 0.73vw, 14px);
+  top: clamp(13px, 0.73vw, 14px);
+  left: clamp(15px, 0.73vw, 14px);
   width: clamp(70px, 1.64vw + 59.5px, 91px);
   height: clamp(21px, 0.47vw + 18px, 27px);
   padding: 0 clamp(11px, 0.7vw + 6.5px, 14.5px);
@@ -194,8 +198,9 @@
 @media (max-width: 640px) {
   .blogs {
     width: 100%;
-    margin: 40px 0 135px;
+    padding: 40px 0 135px;
     gap: 48px;
+    box-sizing: border-box;
   }
 
   .filters {
@@ -204,10 +209,10 @@
 
   .grid {
     width: calc(100% - 48px);
-    margin: 0 auto;
     display: grid;
     grid-template-columns: 1fr;
     gap: 14px;
+    margin: 0 auto;
   }
 
   .card {
@@ -223,8 +228,8 @@
   }
 
   .image span {
-    margin-top: 13px;
-    margin-left: 15px;
+    top: 13px;
+    left: 15px;
     width: 70px;
     height: 21px;
     padding: 0 11px;
@@ -277,6 +282,7 @@
     font-size: 14px;
     line-height: 21px;
   }
+
   .card:nth-child(n + 4) {
     display: none;
   }
@@ -284,9 +290,10 @@
 
 @media (max-width: 1240px) and (min-width: 641px) {
   .blogs {
-    width: calc(100% - 80px);
-    margin-left: 40px;
-    margin-right: 40px;
+    width: 100%;
+    padding-left: 40px;
+    padding-right: 40px;
+    box-sizing: border-box;
   }
 
   .grid {

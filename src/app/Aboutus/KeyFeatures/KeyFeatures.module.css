@@ -1,14 +1,17 @@
 .keyFeatures {
   width: 100%;
-  padding: clamp(80px, 5.23vi + 59.61px, 160px)
-    clamp(22px, 10.78vi - 20.06px, 187px) 0 clamp(24px, 6.21vi - 0.22px, 119px);
+  padding-top: clamp(80px, 5.23vw + 59.61px, 160px);
+  padding-right: clamp(22px, 10.78vw - 20.06px, 187px);
+  padding-bottom: 0;
+  padding-left: clamp(24px, 6.21vw - 0.22px, 119px);
+  box-sizing: border-box;
 }
 
 .content {
-  width: clamp(344px, 83.01vi + 20.27px, 1614px);
+  width: 100%;
   display: grid;
   grid-template-columns: minmax(0, 720px) minmax(0, 639px);
-  column-gap: clamp(30px, 14.71vi + -27.35px, 255px);
+  column-gap: clamp(30px, 14.71vw - 27.35px, 255px);
   align-items: start;
 }
 
@@ -16,7 +19,7 @@
   position: relative;
   width: 100%;
   max-width: 720px;
-  height: clamp(309px, 26.41vi + 206.02px, 713px);
+  height: clamp(309px, 26.41vw + 206.02px, 713px);
   overflow: hidden;
   border-radius: 8px;
 }
@@ -30,20 +33,19 @@
   max-width: 639px;
   display: flex;
   flex-direction: column;
-  gap: clamp(30px, 1.96vi + 22.35px, 60px);
-  margin-top: clamp(0px, 0.56vw, 8px);
+  gap: clamp(30px, 1.96vw + 22.35px, 60px);
 }
 
 .heading {
   width: min(586px, 100%);
   display: flex;
   flex-direction: column;
-  gap: clamp(8px, 0.78vi + 4.94px, 20px);
+  gap: clamp(8px, 0.78vw + 4.94px, 20px);
 }
 
 .heading h2 {
   margin: 0;
-  font-size: clamp(24px, 1.05vi + 19.92px, 40px);
+  font-size: clamp(24px, 1.05vw + 19.92px, 40px);
   font-weight: 500;
   line-height: 1;
   color: #414141;
@@ -61,7 +63,6 @@
 .features {
   width: 100%;
   max-width: 639px;
-
   display: flex;
   flex-direction: column;
   gap: clamp(28px, 3.47vw, 50px);
@@ -77,7 +78,6 @@
 .number {
   width: clamp(28px, 3.47vw, 50px);
   flex-shrink: 0;
-
   font-size: clamp(30px, 2.78vw, 40px);
   font-weight: 500;
   line-height: 1;
@@ -90,7 +90,6 @@
 
 .featureContent h3 {
   margin: 0;
-
   font-family: "Poppins", sans-serif;
   font-size: clamp(18px, 1.67vw, 24px);
   font-weight: 400;
@@ -99,9 +98,7 @@
 
 .featureContent p {
   margin: 0;
-
   max-width: 559px;
-
   font-family: "Poppins", sans-serif;
   font-size: clamp(14px, 1.25vw, 18px);
   font-weight: 400;
@@ -112,15 +109,12 @@
 @media (max-width: 640px) {
   .keyFeatures {
     width: 100%;
-    margin-top: 80px;
-    padding: 0 24px;
+    padding: 80px 24px 0;
     box-sizing: border-box;
   }
 
   .content {
     width: 100%;
-    margin: 0;
-
     display: flex;
     flex-direction: column;
     gap: 30px;
@@ -128,11 +122,9 @@
 
   .imageWrapper {
     order: 2;
-
     width: 100%;
     max-width: none;
     height: 232px;
-
     overflow: hidden;
     border-radius: 8px;
   }
@@ -145,11 +137,8 @@
 
   .info {
     order: 1;
-
     width: 100%;
     max-width: none;
-    margin: 0;
-
     display: flex;
     flex-direction: column;
     gap: 40px;
@@ -192,7 +181,6 @@
   .featureContent {
     width: auto;
     flex: 1;
-
     display: flex;
     flex-direction: column;
     gap: 6px;
@@ -218,7 +206,6 @@
   }
 
   .info {
-    margin-top: 0;
     max-width: none;
   }
 

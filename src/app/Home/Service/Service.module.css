@@ -1,16 +1,20 @@
 .services {
   width: 100%;
-  background: #edf7ff;
   font-family: "Poppins", sans-serif;
-  margin-top: clamp(80px, 7.76vw, 149px);
+  padding-top: clamp(80px, 7.76vw, 149px);
+  box-sizing: border-box;
 }
 
 .content {
-  width: calc(100% - clamp(48px, 22vw, 423px));
-  margin: 0 auto;
-  padding: clamp(60px, 6.15vw, 118px) 0;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+  background: #edf7ff;
+  width: 100%;
+  padding-top: clamp(60px, 6.15vw, 118px);
+  padding-right: clamp(48px, 11.05vw, 212px);
+  padding-bottom: clamp(60px, 6.15vw, 118px);
+  padding-left: clamp(48px, 10.99vw, 211px);
+  box-sizing: border-box;
+  display: flex;
+  align-items: stretch;
   gap: clamp(40px, 13vw, 250px);
 }
 
@@ -23,20 +27,22 @@
 .text {
   display: flex;
   flex-direction: column;
-  gap: clamp(12px, 1.04vw, 20px);
+  gap: clamp(8px, 1.04vw, 20px);
 }
 
 .text h2 {
   font-size: clamp(24px, 2.08vw, 40px);
   font-weight: 500;
   margin: 0;
+  padding: 0;
   color: #414141;
 }
 
 .text p {
-  max-width: 430px;
+  width: 100%;
   font-size: clamp(14px, 0.94vw, 18px);
-  margin: 0 0 clamp(20px, 1.56vw, 30px);
+  margin: 0;
+  padding-bottom: clamp(0px, 1.56vw, 30px);
   color: #61656e;
   font-family: "Poppins", sans-serif;
   line-height: clamp(21px, 1.41vw, 27px);
@@ -56,18 +62,39 @@
 }
 
 .right {
+  width: 100%;
   display: flex;
   flex-direction: column;
   gap: clamp(30px, 2.45vw, 47px);
+  align-self: stretch;
 }
 
 .servicesList {
   width: 100%;
+  flex: 1;
 }
 
 .serviceItem {
-  padding: clamp(12px, 0.83vw, 16px) 0;
+  width: 100%;
+  box-sizing: border-box;
   border-bottom: 1px solid #d5dfe5;
+  transition:
+    padding-top 0.3s ease,
+    padding-bottom 0.3s ease;
+}
+
+.serviceItem.closed {
+  padding-top: clamp(12px, 1.04vw, 20px);
+  padding-bottom: clamp(10px, 0.89vw, 17px);
+}
+
+.serviceItem.open {
+  padding-top: clamp(8px, 0.52vw, 10px);
+  padding-bottom: clamp(12px, 0.94vw, 18px);
+}
+
+.serviceItem:last-child {
+  border-bottom: none;
 }
 
 .serviceHeader {
@@ -84,18 +111,34 @@
 
 .serviceHeader h3 {
   margin: 0;
+  padding: 0;
   font-family: "Poppins", sans-serif;
   font-size: clamp(18px, 1.25vw, 24px);
   font-weight: 400;
+  line-height: 1.35;
+}
+
+.serviceHeader span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.serviceContent {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(12px, 1.04vw, 20px);
 }
 
 .serviceDescription {
-  max-width: 500px;
   height: 0;
   overflow: hidden;
   margin: 0;
+  padding: 0;
   font-size: clamp(14px, 0.94vw, 18px);
   line-height: 1.4;
+  font-weight: 400;
   opacity: 0;
   color: #61656e;
 }
@@ -103,7 +146,7 @@
 .button {
   width: clamp(151px, 11.4vw, 219px);
   height: clamp(37px, 2.4vw, 46px);
-  padding: 8px 16px;
+  padding: clamp(6px, 0.42vw, 8px) clamp(12px, 0.83vw, 16px);
   border: 1px solid #414141;
   border-radius: 83px;
   background: transparent;
@@ -126,15 +169,20 @@
 
 @media (max-width: 640px) {
   .services {
-    margin-top: 80px;
+    padding-top: 80px;
   }
 
   .content {
-    width: calc(100% - 48px);
-    padding: 30px 0;
+    width: 100%;
+    padding: 30px 24px;
+    box-sizing: border-box;
     display: flex;
     flex-direction: column;
     gap: 30px;
+  }
+
+  .text {
+    gap: 8px;
   }
 
   .left h2 {
@@ -142,15 +190,20 @@
     font-family: "Poppins", sans-serif;
   }
 
-  .left > p {
+  .left p {
     max-width: 100%;
     font-size: 14px;
     line-height: 21px;
-    margin: 8px 0 0;
+    padding-bottom: 0;
+    margin: 0;
   }
 
   .imageWrapper {
     display: none;
+  }
+
+  .serviceContent {
+    gap: 20px;
   }
 
   .mobileServiceImage {
@@ -160,30 +213,57 @@
     height: 200px;
     overflow: hidden;
     border-radius: 12px;
+    padding: 0;
   }
 
   .mobileServiceImage img {
     object-fit: cover;
   }
 
+  .serviceItem {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
   .servicesList h3 {
     font-size: 18px;
-    margin-bottom: 0;
+    margin: 0;
   }
 
   .serviceDescription {
-    margin-top: 12px;
     font-size: 14px;
-    margin-bottom: 20px;
+    line-height: 1.5;
   }
 
-  .serviceItem {
-    padding-bottom: 20px;
+  .serviceItem.closed {
+    padding-top: 20px;
+    padding-bottom: 17px;
+  }
+
+  .serviceItem.open {
+    padding-top: 10px;
+    padding-bottom: 18px;
+  }
+
+  .serviceItem:last-child {
     border-bottom: none;
   }
 
+  .right {
+    align-self: auto;
+    gap: 30px;
+  }
+
+  .servicesList {
+    flex: none;
+  }
+
   .button {
-    margin-left: auto;
-    margin-right: auto;
+    width: 151px;
+    height: 37px;
+    padding: 8px 16px;
+    margin: 0 auto;
+    font-size: 14px;
   }
 }

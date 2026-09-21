@@ -1,18 +1,21 @@
 .insights {
   width: 100%;
-  margin-top: clamp(70px, 8.44vw, 162px);
-  margin-bottom: clamp(60px, 5.78vw, 111px);
+  padding-top: clamp(70px, 8.44vw, 162px);
+  padding-right: clamp(24px, 9.17vw, 176px);
+  padding-bottom: clamp(60px, 5.78vw, 111px);
+  padding-left: clamp(24px, 6.3vw, 121px);
+  box-sizing: border-box;
   background: #ffffff;
   overflow: hidden;
 }
 
 .content {
-  width: calc(100% - clamp(48px, 15.47vw, 297px));
+  width: 100%;
   max-width: 1623px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: minmax(0, 509px) minmax(0, 794px);
-  column-gap: clamp(50px, 16.67vw, 320px);
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: clamp(50px, 16.67vw, 320px);
   position: relative;
 }
 
@@ -72,9 +75,8 @@
   position: relative;
   width: clamp(430px, 35.05vw, 673px);
   height: clamp(320px, 26.2vw, 503px);
-  margin-left: clamp(-43px, -2.24vw, -20px);
   z-index: 0;
-  transform: translateX(-20%);
+  transform: translateX(calc(-20% - clamp(20px, 2.24vw, 43px)));
 }
 
 .houseImage img {
@@ -162,7 +164,6 @@
   width: auto;
   height: calc(100% - clamp(20px, 1.56vw, 30px));
   flex: 1;
-  margin-left: 0;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -242,10 +243,14 @@
 }
 
 @media (min-width: 901px) and (max-width: 1440px) {
+  .insights {
+    padding-left: 60px;
+    padding-right: 60px;
+  }
+
   .content {
-    width: calc(100% - 120px);
-    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-    column-gap: 80px;
+    width: 100%;
+    gap: 80px;
   }
 
   .left {
@@ -257,9 +262,8 @@
     width: clamp(430px, 48vw, 673px);
     height: auto;
     aspect-ratio: 673 / 503;
-    margin-left: -43px;
     z-index: 0;
-    transform: translateX(-20%);
+    transform: translateX(calc(-20% - 43px));
   }
 
   .houseImage img {
@@ -295,7 +299,6 @@
     width: auto;
     flex: 1;
     height: 178px;
-    margin-left: 0;
     padding: 18px 0 12px;
   }
 
@@ -315,9 +318,16 @@
 }
 
 @media (min-width: 641px) and (max-width: 900px) {
+  .insights {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+
   .content {
-    width: calc(100% - 80px);
-    display: block;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
   }
 
   .left {
@@ -339,7 +349,6 @@
 
   .cards {
     width: 100%;
-    margin-top: 50px;
     gap: 15px;
   }
 
@@ -359,7 +368,6 @@
     width: auto;
     flex: 1;
     height: 146px;
-    margin-left: 0;
     padding: 12px 0 8px;
   }
 
@@ -371,7 +379,7 @@
 
   .cardContent p {
     width: 100%;
-    margin-top: 8px;
+    margin: 0;
     font-size: 14px;
     line-height: 1.35;
     display: -webkit-box;
@@ -389,16 +397,17 @@
 @media (max-width: 640px) {
   .insights {
     width: 100%;
-    margin-top: 80px;
-    margin-bottom: 80px;
+    padding: 80px 24px;
+    box-sizing: border-box;
     overflow: hidden;
   }
 
   .content {
     width: 100%;
-    margin: 0;
-    padding: 0 24px;
-    display: block;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
   }
 
   .left {
@@ -439,9 +448,6 @@
 
   .cards {
     width: 100%;
-    margin-top: 30px;
-    display: flex;
-    flex-direction: column;
     gap: 10px;
   }
 
@@ -484,7 +490,6 @@
     width: auto;
     height: 100%;
     flex: 1;
-    margin-left: 0;
     padding: 5px 5px 5px 0;
   }
 
@@ -502,7 +507,7 @@
   }
 
   .cardContent small {
-    margin-top: auto;
+    margin: 0;
     font-family: "Poppins", sans-serif;
     font-size: 12px;
     font-weight: 400;
@@ -511,8 +516,6 @@
   }
 
   .cardArrow {
-    right: 0;
-    bottom: 0;
     width: 20px;
     height: 20px;
   }

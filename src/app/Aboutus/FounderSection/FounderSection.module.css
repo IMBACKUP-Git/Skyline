@@ -1,13 +1,15 @@
 .founder {
   width: 100%;
-  margin-top: clamp(80px, 11.11vw, 160px);
-  margin-bottom: clamp(80px, 11.11vw, 160px);
+  padding-top: clamp(80px, 11.11vw, 160px);
+  padding-bottom: clamp(80px, 11.11vw, 160px);
+  box-sizing: border-box;
 }
 
 .content {
-  width: min(1680px, calc(100% - clamp(48px, 16.67vw, 240px)));
-  margin: 0 auto;
-
+  width: 100%;
+  padding-left: clamp(24px, 6.25vw, 120px);
+  padding-right: clamp(24px, 6.25vw, 120px);
+  box-sizing: border-box;
   display: grid;
   grid-template-columns: minmax(0, 563px) minmax(0, 852px);
   column-gap: clamp(80px, 18.4vw, 265px);
@@ -21,63 +23,51 @@
 
 .subtitle {
   margin: 0;
-
   font-family: "Poppins", sans-serif;
   font-size: clamp(18px, 1.67vw, 24px);
   font-weight: 400;
   line-height: 1.5;
-
   color: #61656e;
 }
 
 .info h2 {
   width: min(463px, 100%);
-  margin: clamp(4px, 0.69vw, 10px) 0 0;
-
+  margin: 0;
+  padding-top: clamp(4px, 0.69vw, 10px);
   font-family: "Montserrat", sans-serif;
   font-size: clamp(30px, 2.78vw, 40px);
   font-weight: 500;
   line-height: 1.225;
-
   color: #414141;
 }
 
 .description {
   position: relative;
-
   width: 100%;
   max-width: 563px;
   min-height: 110px;
-
-  margin: clamp(20px, 2.71vw, 39px) 0 0;
-  padding: 10px 0 10px clamp(8px, 0.69vw, 10px);
-
+  margin: 0;
+  padding: clamp(20px, 2.71vw, 39px) 0 10px clamp(8px, 0.69vw, 10px);
   box-sizing: border-box;
-
   font-family: "Poppins", sans-serif;
   font-size: clamp(16px, 1.39vw, 20px);
   font-weight: 300;
   line-height: 1.5;
-
   color: #61656e;
 }
 
 .description::before {
   content: "";
-
   position: absolute;
   left: 0;
   top: 0;
-
   width: 1px;
   height: 110px;
-
   background: #000;
 }
 
 .imageWrapper {
   position: relative;
-
   width: 100%;
   max-width: 852px;
   height: clamp(320px, 28.9vw, 555px);
@@ -90,16 +80,14 @@
 
 @media (max-width: 640px) {
   .founder {
-    margin-top: 80px;
-    margin-bottom: 80px;
-    padding: 0 24px;
+    width: 100%;
+    padding: 80px 24px;
     box-sizing: border-box;
   }
 
   .content {
     width: 100%;
-    margin: 0;
-
+    padding: 0;
     display: flex;
     flex-direction: column;
     gap: 32px;
@@ -117,8 +105,8 @@
 
   .info h2 {
     width: 100%;
-    margin: 4px 0 0;
-
+    margin: 0;
+    padding-top: 4px;
     font-size: 24px;
     line-height: 1.2;
   }
@@ -128,10 +116,8 @@
     max-width: none;
     min-height: 0;
     height: auto;
-
-    margin: 12px 0 0;
-    padding: 0;
-
+    margin: 0;
+    padding: 12px 0 0;
     font-size: 14px;
     line-height: 1.4;
   }
@@ -144,7 +130,6 @@
     width: 100%;
     max-width: none;
     height: 417px;
-
     border-radius: 8px;
   }
 

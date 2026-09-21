@@ -1,10 +1,8 @@
-"use client";
-
 import Image from "next/image";
 import { Montserrat } from "next/font/google";
 import styles from "./BlogHero.module.css";
 import Link from "next/link";
-import featuredImage from "./image.png";
+import { blogs } from "@/data/blog";
 
 const montserrat = Montserrat({
   subsets: ["latin"],
@@ -12,6 +10,12 @@ const montserrat = Montserrat({
 });
 
 export default function BlogHero() {
+  const featuredBlog = blogs.find(
+    (blog) => blog.slug === "first-time-buyer-guide-dubai-real-estate",
+  );
+
+  if (!featuredBlog) return null;
+
   return (
     <section className={styles.hero}>
       <div className={styles.header}>
@@ -27,23 +31,18 @@ export default function BlogHero() {
       <div className={styles.featured}>
         <div className={styles.info}>
           <div className={styles.infoContent}>
-            <h2 className={montserrat.className}>
-              A first-time buyer&apos;s guide to Dubai real estate
-            </h2>
+            <h2 className={montserrat.className}>{featuredBlog.title}</h2>
 
-            <p>
-              Every buyer who walks into a conversation about Dubai real estate
-              eventually asks the same question: off-plan or ready?
-            </p>
+            <p>{featuredBlog.intro}</p>
           </div>
 
-          <Link href="/BlogInternal">Read more</Link>
+          <Link href={`/Blog/${featuredBlog.slug}`}>Read more</Link>
         </div>
 
         <div className={styles.image}>
           <Image
-            src={featuredImage}
-            alt="Modern Dubai property"
+            src={featuredBlog.featuredImage || featuredBlog.image}
+            alt={featuredBlog.title}
             fill
             sizes="(max-width: 640px) 100vw, 70vw"
           />

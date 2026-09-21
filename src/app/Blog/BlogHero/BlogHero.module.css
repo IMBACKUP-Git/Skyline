@@ -4,7 +4,8 @@
   flex-direction: column;
   align-items: center;
   gap: clamp(25px, 2.73vw, 60px);
-  margin-top: clamp(24px, 3.65vw, 70px);
+  padding-top: clamp(24px, 3.65vw, 70px);
+  box-sizing: border-box;
 }
 
 .header {
@@ -16,7 +17,7 @@
 }
 
 .header h1 {
-  width: clamp(306px, 28.56vi + 194.61px, 743px);
+  width: clamp(306px, 28.56vw + 194.61px, 743px);
   margin: 0;
   font-size: clamp(30px, 3.75vw, 72px);
   font-weight: 400;
@@ -42,7 +43,7 @@
 }
 
 .info {
-  width: clamp(343px, 8.3vi + 310.63px, 470px);
+  width: clamp(343px, 8.3vw + 310.63px, 470px);
   height: 100%;
   padding: clamp(24px, 3.44vw, 66px) clamp(26px, 2.97vw, 57px)
     clamp(16px, 2.14vw, 41px) clamp(26px, 1.98vw, 38px);
@@ -92,6 +93,10 @@
   text-decoration: none;
   color: black;
   text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
 }
 
 .image {
@@ -108,7 +113,7 @@
 
 @media (max-width: 640px) {
   .hero {
-    margin-top: 24px;
+    padding-top: 24px;
     gap: 25px;
   }
 
@@ -172,7 +177,7 @@
     line-height: 21px;
   }
 
-  .info button {
+  .info a {
     width: 154px;
     height: 31px;
     font-size: 12px;

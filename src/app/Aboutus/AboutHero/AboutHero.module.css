@@ -1,7 +1,7 @@
 .hero {
   position: relative;
   width: 100%;
-  height: clamp(803px, 50.52vw, 970px);
+  height: 100vh;
   overflow: hidden;
 }
 
@@ -12,21 +12,21 @@
 
 .heroContent {
   position: absolute;
-  top: clamp(105px, 8.89vw, 128px);
-  left: clamp(25px, 8.26vw, 119px);
+  top: clamp(105px, 6.67vw, 128px);
+  left: clamp(25px, 6.2vw, 119px);
   z-index: 2;
-  width: clamp(340px, 36.27vi + 198.53px, 895px);
+  width: clamp(340px, 46.61vw, 895px);
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: clamp(14px, 2.78vw, 40px);
+  gap: clamp(14px, 2.08vw, 40px);
   color: #414141;
 }
 
 .heroContent h1 {
   width: 100%;
   margin: 0;
-  font-size: clamp(30px, 2.75vw + 19.29px, 72px);
+  font-size: clamp(30px, 2.19vw, 72px);
   font-weight: 400;
   line-height: 100%;
   letter-spacing: 0;
@@ -34,7 +34,7 @@
 }
 
 .description {
-  width: clamp(308px, 25.55vi + 181.06px, 806px);
+  width: clamp(308px, 26.98vw, 806px);
   height: auto;
   font-family: "Poppins", sans-serif;
   font-size: clamp(14px, 1.04vw, 20px);

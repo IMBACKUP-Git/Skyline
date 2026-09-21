@@ -1,7 +1,7 @@
 .propertiesMarquee {
   width: 100%;
   overflow: hidden;
-  margin-top: clamp(36px, 8.9vw, 171px);
+  padding-top: clamp(36px, 8.9vw, 171px);
 }
 
 .marqueeTrack {
@@ -33,7 +33,7 @@
 
 @media (max-width: 640px) {
   .propertiesMarquee {
-    margin-top: 36px;
+    padding-top: 36px;
   }
 
   .marqueeGroup {

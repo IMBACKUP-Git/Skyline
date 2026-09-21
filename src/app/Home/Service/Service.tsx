@@ -9,6 +9,7 @@ import leasingImage from "./leasingImage.png";
 import offplanImage from "./offplanImage.png";
 import managementImage from "./managementImage.png";
 import legalImage from "./legalImage.png";
+
 import { Montserrat } from "next/font/google";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
@@ -21,6 +22,7 @@ const montserrat = Montserrat({
 
 export default function Services() {
   const [activeService, setActiveService] = useState(0);
+
   const descriptionRefs = useRef<(HTMLParagraphElement | null)[]>([]);
 
   const services = [
@@ -70,7 +72,6 @@ export default function Services() {
       gsap.to(description, {
         height: isOpen ? "auto" : 0,
         opacity: isOpen ? 1 : 0,
-        marginTop: isOpen ? 8 : 0,
         duration: 0.5,
         ease: "power3.inOut",
       });
@@ -105,7 +106,12 @@ export default function Services() {
               const isOpen = activeService === service.id;
 
               return (
-                <div key={service.title} className={styles.serviceItem}>
+                <div
+                  key={service.title}
+                  className={`${styles.serviceItem} ${
+                    isOpen ? styles.open : styles.closed
+                  }`}
+                >
                   <button
                     className={styles.serviceHeader}
                     onClick={() => setActiveService(service.id)}
@@ -113,9 +119,7 @@ export default function Services() {
                     <h3>{service.title}</h3>
 
                     <span>
-                      {isOpen ? (
-                        ""
-                      ) : (
+                      {!isOpen && (
                         <svg
                           width="17"
                           height="17"
@@ -135,19 +139,22 @@ export default function Services() {
                     </span>
                   </button>
 
-                  <p
-                    ref={(element) => {
-                      descriptionRefs.current[service.id] = element;
-                    }}
-                    className={styles.serviceDescription}
-                  >
-                    {service.description}
-                  </p>
-                  {isOpen && (
-                    <div className={styles.mobileServiceImage}>
-                      <Image src={service.image} alt={service.title} fill />
-                    </div>
-                  )}
+                  <div className={styles.serviceContent}>
+                    <p
+                      ref={(element) => {
+                        descriptionRefs.current[service.id] = element;
+                      }}
+                      className={styles.serviceDescription}
+                    >
+                      {service.description}
+                    </p>
+
+                    {isOpen && (
+                      <div className={styles.mobileServiceImage}>
+                        <Image src={service.image} alt={service.title} fill />
+                      </div>
+                    )}
+                  </div>
                 </div>
               );
             })}

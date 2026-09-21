@@ -28,8 +28,153 @@
   text-decoration: none;
 }
 
+.menuButton {
+  display: none;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  border: none;
+  background: transparent;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 1002;
+}
+
+.menuButton svg {
+  width: 24px;
+  height: 24px;
+  overflow: visible;
+}
+
+.menuButton line {
+  stroke: #414141;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  transform-box: fill-box;
+  transform-origin: center;
+  transition:
+    transform 0.35s ease,
+    opacity 0.25s ease;
+}
+
+.mobileMenu {
+  display: none;
+}
+
 @media (max-width: 640px) {
   .navbar {
+    position: relative;
+    width: 100%;
+    height: 64px;
+    padding: 0 24px;
+    box-sizing: border-box;
+    background: #fff;
+    z-index: 999;
+  }
+
+  .logo {
+    width: 100px;
+    height: 52px;
+    z-index: 1000;
+  }
+
+  .navLinks {
     display: none;
+  }
+
+  .menuButton {
+    display: flex;
+  }
+
+  /* Hamburger -> X */
+
+  .menuOpen line[data-line="1"] {
+    transform: translateY(6px) rotate(45deg);
+  }
+
+  .menuOpen line[data-line="2"] {
+    opacity: 0;
+  }
+
+  .menuOpen line[data-line="3"] {
+    transform: translateY(-6px) rotate(-45deg);
+  }
+
+  /* Mobile menu */
+
+  .mobileMenu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+
+    padding: 164px 24px 40px;
+    box-sizing: border-box;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 26px;
+
+    background: rgba(255, 255, 255, 0.78);
+    backdrop-filter: blur(30px);
+
+    z-index: 998;
+
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+
+    transition:
+      opacity 0.35s ease,
+      transform 0.4s ease,
+      visibility 0.4s ease;
+  }
+
+  .menuVisible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+
+  .mobileMenu a {
+    width: fit-content;
+
+    font-family: "Poppins", sans-serif;
+    font-size: 18px;
+    line-height: 27px;
+    font-weight: 600;
+    color: #414141;
+    text-decoration: none;
+
+    opacity: 0;
+    transform: translateY(-10px);
+
+    transition:
+      opacity 0.35s ease,
+      transform 0.35s ease;
+  }
+
+  .menuVisible a {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .menuVisible a:nth-child(1) {
+    transition-delay: 0.08s;
+  }
+
+  .menuVisible a:nth-child(2) {
+    transition-delay: 0.14s;
+  }
+
+  .menuVisible a:nth-child(3) {
+    transition-delay: 0.2s;
+  }
+
+  .menuVisible a:nth-child(4) {
+    transition-delay: 0.26s;
   }
 }

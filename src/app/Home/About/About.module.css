@@ -1,19 +1,21 @@
 .about {
-  width: calc(100% - clamp(48px, 12.8vw, 246px));
-  max-width: 1677px;
+  width: 100%;
   height: auto;
-  margin: clamp(80px, 9.06vw, 174px) auto 0;
-  display: grid;
-  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1fr);
+  padding-top: clamp(80px, 9.06vw, 174px);
+  padding-left: clamp(24px, 6.4vw, 123px);
+  padding-right: clamp(23px, 6.25vw, 120px);
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
 }
 
 .aboutTitle {
-  padding-top: 0;
+  flex: 1;
 }
 
 .aboutTitle h2 {
   margin: 0;
-  width: min(100%, 483px);
+  width: 100%;
   font-size: clamp(24px, 2.08vw, 40px);
   font-weight: 500;
   line-height: 100%;
@@ -23,6 +25,7 @@
 .aboutContent {
   width: 100%;
   max-width: 750px;
+  flex: 1;
   display: flex;
   flex-direction: column;
   gap: clamp(30px, 3.47vw, 50px);
@@ -99,18 +102,23 @@
 
 @media (max-width: 640px) {
   .about {
-    width: calc(100% - 48px);
-    margin: 80px auto 0;
+    width: 100%;
+    padding: 80px 23px 0 24px;
+    box-sizing: border-box;
 
     display: flex;
     flex-direction: column;
+  }
+
+  .aboutTitle {
+    padding-bottom: 8px;
   }
 
   .aboutTitle h2 {
     width: 100%;
     font-size: 24px;
     font-family: "Poppins", sans-serif;
-    margin-bottom: 8px;
+    margin: 0;
     line-height: 1.2;
   }
 

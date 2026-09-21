@@ -3,39 +3,15 @@
 import { useCallback, useEffect, useState } from "react";
 import useEmblaCarousel from "embla-carousel-react";
 import Image from "next/image";
+import Link from "next/link";
 import styles from "./RelatedBlog.module.css";
+import type { RelatedBlog } from "@/data/blog";
 
-import image1 from "./image1.png";
-import image2 from "./image2.png";
-
-const relatedBlogs = [
-  {
-    category: "Market",
-    title: "A first-time buyer's guide to Dubai real estate",
-    description:
-      "From budgeting and mortgage pre-approval to choosing the right property...",
-    readTime: "4 min read",
-    image: image1,
-  },
-  {
-    category: "Market",
-    title: "A first-time buyer's guide to Dubai real estate",
-    description:
-      "From budgeting and mortgage pre-approval to choosing the right property...",
-    readTime: "4 min read",
-    image: image2,
-  },
-  {
-    category: "Market",
-    title: "A first-time buyer's guide to Dubai real estate",
-    description:
-      "From budgeting and mortgage pre-approval to choosing the right property...",
-    readTime: "4 min read",
-    image: image1,
-  },
-];
-
-export default function RelatedBlogs() {
+export default function RelatedBlogs({
+  relatedBlogs,
+}: {
+  relatedBlogs: RelatedBlog[];
+}) {
   const [selectedIndex, setSelectedIndex] = useState(0);
   const [scrollSnaps, setScrollSnaps] = useState<number[]>([]);
 
@@ -71,7 +47,7 @@ export default function RelatedBlogs() {
       <div className={styles.embla} ref={emblaRef}>
         <div className={styles.cards}>
           {relatedBlogs.map((blog, index) => (
-            <article className={styles.card} key={index}>
+            <article className={styles.card} key={`${blog.slug}-${index}`}>
               <div className={styles.image}>
                 <Image src={blog.image} alt={blog.title} fill />
 
@@ -86,7 +62,8 @@ export default function RelatedBlogs() {
 
                 <p>{blog.description}</p>
 
-                <button
+                <Link
+                  href={`/Blog/${blog.slug}`}
                   className={styles.arrow}
                   aria-label={`Read ${blog.title}`}
                 >
@@ -105,7 +82,7 @@ export default function RelatedBlogs() {
                       strokeLinejoin="round"
                     />
                   </svg>
-                </button>
+                </Link>
               </div>
             </article>
           ))}

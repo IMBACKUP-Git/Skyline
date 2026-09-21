@@ -3,14 +3,15 @@
   display: flex;
   flex-direction: column;
   gap: clamp(30px, 3.82vw, 55px);
-  margin-top: clamp(75px, 3.27vi + 62.25px, 125px);
-  padding: 0 clamp(23px, 6.34vi + -1.73px, 120px) 0
-    clamp(24px, 6.14vi + 0.04px, 118px);
+  padding-top: clamp(30px, 2.24vw, 43px);
+  padding-right: clamp(24px, 6.25vw, 120px);
+  padding-bottom: 0;
+  padding-left: clamp(24px, 6.15vw, 118px);
+  box-sizing: border-box;
 }
 
 .heading {
-  width: min(100% - 48px, 1680px);
-  margin: 0 auto;
+  width: 100%;
   display: flex;
   flex-direction: column;
   gap: 5px;
@@ -18,7 +19,7 @@
 
 .heading h2 {
   margin: 0;
-  font-size: clamp(24px, 1.05vi + 19.92px, 40px);
+  font-size: clamp(24px, 1.05vw + 19.92px, 40px);
   font-weight: 500;
   line-height: 1;
   color: #414141;
@@ -27,17 +28,16 @@
 .heading p {
   margin: 0;
   font-family: "Poppins", sans-serif;
-  font-size: clamp(14px, 0.26vi + 12.98px, 18px);
+  font-size: clamp(14px, 0.26vw + 12.98px, 18px);
   font-weight: 400;
   line-height: 1.4;
   color: #61656e;
 }
 
 .cards {
-  width: min(100% - 48px, 1680px);
-  margin: 0 auto;
+  width: 100%;
   display: flex;
-  gap: clamp(20px, 0.52vi + 17.96px, 28px);
+  gap: clamp(20px, 0.52vw + 17.96px, 28px);
 }
 
 .card {
@@ -45,18 +45,16 @@
   width: 100%;
   max-width: 399px;
   height: clamp(250px, 25.56vw, 368px);
-
   padding: clamp(16px, 1.39vw, 20px);
+  box-sizing: border-box;
   overflow: hidden;
   border-radius: 20px;
-
   background: linear-gradient(
     227.49deg,
     #edf7ff 24.92%,
     #ffffff 55.48%,
     #edf7ff 88.61%
   );
-
   display: flex;
   flex-direction: column;
   gap: 8px;
@@ -96,7 +94,6 @@
 .card p {
   max-width: 340px;
   margin: 0;
-
   font-family: "Poppins", sans-serif;
   font-size: clamp(14px, 1.25vw, 18px);
   font-weight: 400;
@@ -106,15 +103,13 @@
 
 @media (max-width: 640px) {
   .vision {
-    margin-top: 80px;
-    padding: 0 24px;
+    padding: 80px 24px 0;
     box-sizing: border-box;
     gap: 30px;
   }
 
   .heading {
     width: 100%;
-    margin: 0;
     gap: 8px;
   }
 
@@ -134,7 +129,6 @@
 
   .cards {
     width: 100%;
-    margin: 0;
     flex-direction: column;
     gap: 20px;
   }
@@ -144,9 +138,7 @@
     max-width: none;
     height: 180px;
     flex: none;
-
     box-sizing: border-box;
-
     border-radius: 8px;
     display: flex;
     flex-direction: column;

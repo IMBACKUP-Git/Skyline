@@ -17,7 +17,7 @@ const montserrat = Montserrat({
 export default function Hero() {
   useGSAP(() => {
     gsap.to(`.${styles.hero}`, {
-      "--hero-shift": "-120px",
+      "--hero-shift": "-100px",
       ease: "none",
       scrollTrigger: {
         trigger: `.${styles.hero}`,
@@ -31,17 +31,19 @@ export default function Hero() {
   return (
     <section className={styles.hero}>
       <div className={styles.heroContent}>
-        <h1 className={`${styles.heroTitle} ${montserrat.className}`}>
-          <span>Redefining Real Estate,</span> <br />
-          <span>creating lasting value.</span>
-        </h1>
+        <div className={styles.text}>
+          <h1 className={`${styles.heroTitle} ${montserrat.className}`}>
+            <span>Redefining Real Estate,</span> <br />
+            <span>creating lasting value.</span>
+          </h1>
 
-        <p className={styles.heroDescription}>
-          SKRE is a Dubai-based real estate brokerage connecting buyers,
-          sellers, and tenants with the city's best properties - backed by
-          expert guidance from your first search to well after you've moved in.
-        </p>
-
+          <p className={styles.heroDescription}>
+            SKRE is a Dubai-based real estate brokerage connecting buyers,
+            sellers, and tenants with the city's best properties - backed by
+            expert guidance from your first search to well after you've moved
+            in.
+          </p>
+        </div>
         <Link href="/Contact" className={styles.heroButton}>
           Book a consultation
         </Link>

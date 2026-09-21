@@ -7,13 +7,10 @@
   position: relative;
   width: 100%;
   height: clamp(350px, 30.42vw, 584px);
-
   display: flex;
   justify-content: center;
   align-items: flex-start;
-
   background: linear-gradient(180deg, #ffffff 45.83%, #88abc7 100%);
-
   overflow: hidden;
 }
 
@@ -30,29 +27,27 @@
 .footerContent {
   width: 100%;
   padding: clamp(30px, 2.08vw, 40px) clamp(40px, 6.77vw, 130px) 30px;
-
+  box-sizing: border-box;
   display: grid;
-
   grid-template-columns:
     minmax(0, 1.2fr)
     minmax(150px, 0.7fr)
     minmax(0, 1fr);
-
   column-gap: clamp(30px, 4vw, 80px);
-
   align-items: start;
-
   color: #ffffff;
 }
 
 .newsletter {
   width: 100%;
   max-width: 460px;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(8px, 0.42vw, 8px);
 }
 
 .newsletter h3 {
-  margin: 0 0 8px;
-
+  margin: 0;
   font-family: "Poppins", sans-serif;
   font-size: clamp(18px, 1.25vw, 24px);
   font-weight: 500;
@@ -60,8 +55,8 @@
 }
 
 .newsletter p {
-  margin: 0 0 clamp(18px, 1.56vw, 30px);
-
+  margin: 0;
+  padding-bottom: clamp(10px, 1.56vw, 30px);
   font-family: "Poppins", sans-serif;
   font-size: clamp(14px, 0.94vw, 18px);
   font-weight: 400;
@@ -72,10 +67,8 @@
   width: 100%;
   max-width: 460px;
   height: clamp(48px, 2.92vw, 56px);
-
   display: flex;
   align-items: center;
-
   background: #ffffff;
   border-radius: 30px;
   overflow: hidden;
@@ -86,10 +79,8 @@
   min-width: 0;
   height: 100%;
   padding: 0 18px;
-
   border: none;
   outline: none;
-
   font-family: "Poppins", sans-serif;
   font-size: clamp(11px, 0.68vw, 13px);
 }
@@ -97,32 +88,24 @@
 .emailBox button {
   width: clamp(90px, 6.25vw, 120px);
   height: clamp(40px, 2.5vw, 48px);
-
   flex-shrink: 0;
-
   margin-right: 4px;
   padding: 0;
-
   border: none;
   border-radius: 25px;
-
   background: #000000;
   color: #ffffff;
-
   font-family: "Poppins", sans-serif;
   font-size: clamp(11px, 0.68vw, 13px);
   white-space: nowrap;
-
   cursor: pointer;
 }
 
 .footerLogo {
   position: relative;
-
   width: clamp(300px, 25.78vw, 495px);
   height: clamp(140px, 11.82vw, 227px);
-
-  margin-top: 33px;
+  margin-top: 0;
 }
 
 .footerLogo img {
@@ -132,15 +115,14 @@
 
 .company {
   width: 100%;
-
   display: flex;
   flex-direction: column;
   gap: clamp(7px, 0.52vw, 10px);
 }
 
 .company h3 {
-  margin: 0 0 clamp(8px, 0.52vw, 10px);
-
+  margin: 0;
+  padding-bottom: clamp(8px, 0.52vw, 10px);
   font-family: "Poppins", sans-serif;
   font-size: clamp(18px, 1.25vw, 24px);
   font-weight: 400;
@@ -149,10 +131,8 @@
 
 .company a {
   height: clamp(22px, 1.41vw, 27px);
-
   color: #ffffff;
   text-decoration: none;
-
   font-family: "Poppins", sans-serif;
   font-size: clamp(14px, 0.94vw, 18px);
   font-weight: 400;
@@ -162,11 +142,13 @@
 .contact {
   width: 100%;
   min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(18px, 1.3vw, 25px);
 }
 
 .contact h3 {
-  margin: 0 0 clamp(18px, 1.3vw, 25px);
-
+  margin: 0;
   font-family: "Poppins", sans-serif;
   font-size: clamp(18px, 1.25vw, 24px);
   font-weight: 400;
@@ -175,13 +157,11 @@
 
 .contactColumns {
   width: 100%;
-
   display: grid;
   grid-template-columns:
     minmax(0, 1fr)
     minmax(0, 1fr)
     minmax(0, 1fr);
-
   column-gap: clamp(15px, 2.86vw, 55px);
   row-gap: 20px;
 }
@@ -190,11 +170,8 @@
 .visit span {
   display: block;
   width: 100%;
-
   padding-bottom: clamp(8px, 0.73vw, 14px);
-
   border-bottom: 0.5px solid rgba(255, 255, 255, 0.23);
-
   font-family: "Poppins", sans-serif;
   font-size: clamp(14px, 0.94vw, 18px);
   font-weight: 400;
@@ -208,8 +185,8 @@
 
 .contactColumns p,
 .visit p {
-  margin: 5px 0 0;
-
+  margin: 0;
+  padding-top: 5px;
   font-family: "Poppins", sans-serif;
   font-size: clamp(12px, 0.94vw, 18px);
   font-weight: 400;
@@ -218,7 +195,6 @@
 
 .contactColumns .visit {
   grid-column: 1;
-  margin-top: 0;
 }
 
 .visit p {
@@ -230,17 +206,13 @@
 }
 
 .footerBottom {
-  margin: 0 clamp(40px, 6.77vw, 130px);
-  padding: 15px 0;
-
+  padding: 15px clamp(40px, 6.77vw, 130px);
+  box-sizing: border-box;
   display: flex;
   align-items: center;
   justify-content: space-between;
-
   border-top: 1px solid rgba(255, 255, 255, 0.3);
-
   color: #ffffff;
-
   font-family: "Poppins", sans-serif;
   font-size: clamp(12px, 0.94vw, 18px);
   font-weight: 400;
@@ -272,9 +244,7 @@
 
   .footerImage {
     height: 200px;
-
     align-items: flex-start;
-
     background: linear-gradient(180deg, #ffffff 0%, #88abc7 100%);
   }
 
@@ -290,23 +260,21 @@
   .footerContent {
     width: 100%;
     padding: 0 24px 30px;
-
+    box-sizing: border-box;
     display: flex;
     flex-direction: column;
-
     gap: 0;
-
     color: #fff;
   }
 
   .newsletter {
     width: 100%;
     max-width: none;
+    gap: 8px;
   }
 
   .newsletter h3 {
-    margin: 0 0 8px;
-
+    margin: 0;
     font-family: "Montserrat", sans-serif;
     font-size: 18px;
     font-weight: 500;
@@ -315,8 +283,8 @@
 
   .newsletter p {
     width: 100%;
-    margin: 0 0 18px;
-
+    margin: 0;
+    padding-bottom: 10px;
     font-family: "Poppins", sans-serif;
     font-size: 14px;
     font-weight: 400;
@@ -337,12 +305,9 @@
   .emailBox button {
     width: auto;
     height: 40px;
-
     margin-right: 4px;
     padding: 0 14px;
-
     border-radius: 25px;
-
     font-size: 11px;
   }
 
@@ -358,25 +323,22 @@
   }
 
   .company h3 {
-    margin: 0 0 8px;
-
+    margin: 0;
+    padding-bottom: 8px;
     font-size: 18px;
     font-weight: 400;
   }
 
   .company a {
     height: auto;
-
     display: flex;
     align-items: center;
     justify-content: space-between;
-
     font-size: 14px;
   }
 
   .linkArrow {
     display: block;
-
     font-size: 20px;
     font-weight: 300;
     line-height: 1;
@@ -384,25 +346,21 @@
 
   .contact {
     width: 100%;
-
-    padding-top: 10px;
+    padding-top: 30px;
     margin-top: 20px;
-
     border-top: 0.5px solid #b6ccdc;
+    gap: 18px;
   }
 
   .contact h3 {
-    margin: 0 0 18px;
-
+    margin: 0;
     font-size: 18px;
     font-weight: 400;
   }
 
   .contactColumns {
     display: grid;
-
     grid-template-columns: 1fr 1fr;
-
     column-gap: 25px;
     row-gap: 20px;
   }
@@ -410,23 +368,20 @@
   .contactColumns span,
   .visit span {
     width: 100%;
-
     padding-bottom: 8px;
-
     font-size: 14px;
   }
 
   .contactColumns p,
   .visit p {
-    margin-top: 5px;
-
+    margin: 0;
+    padding-top: 5px;
     font-size: 12px;
     line-height: 1.4;
   }
 
   .visit {
     grid-column: auto;
-    margin-top: 0;
   }
 
   .visit p {
@@ -434,16 +389,13 @@
   }
 
   .footerBottom {
-    margin: 0 24px;
-    padding: 12px 0;
-
+    margin: 0;
+    padding: 12px 24px;
+    box-sizing: border-box;
     display: grid;
     grid-template-columns: 105px 1fr;
-
     align-items: start;
-
     column-gap: 20px;
-
     font-size: 10px;
     line-height: 1.3;
   }
@@ -454,12 +406,9 @@
 
   .footerBottom div {
     display: flex;
-
     justify-content: flex-end;
     align-items: flex-start;
-
     gap: 6px;
-
     white-space: nowrap;
   }
 

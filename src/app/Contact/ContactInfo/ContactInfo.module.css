@@ -1,8 +1,16 @@
+.contactSection {
+  width: 100%;
+  padding-top: clamp(80px, 5.94vw, 114px);
+  padding-bottom: 130px;
+  padding-left: clamp(24px, 6.18vw, 119px);
+  padding-right: clamp(24px, 6.09vw, 117px);
+  box-sizing: border-box;
+}
+
 .contact {
-  width: min(1679px, calc(100% - 12.7vw));
+  width: 100%;
   min-height: 216px;
   background: #edf7ff;
-  margin: clamp(80px, 5.94vw, 114px) auto;
   border-radius: 8px;
   padding: 0 clamp(40px, 8.7vw, 167px);
   box-sizing: border-box;
@@ -13,7 +21,7 @@
 .info {
   width: 100%;
   display: flex;
-  gap: clamp(20px, 6.54vw + -5.49px, 120px);
+  gap: clamp(20px, 6.54vw - 5.49px, 120px);
 }
 
 .desc {
@@ -53,10 +61,14 @@
 }
 
 @media (max-width: 768px) {
+  .contactSection {
+    padding: 80px 24px;
+    box-sizing: border-box;
+  }
+
   .contact {
-    width: calc(100% - 48px);
+    width: 100%;
     min-height: 422px;
-    margin: 80px auto;
     padding: 53px 16px 52px;
     box-sizing: border-box;
   }
