@@ -37,7 +37,6 @@
 .header h1 {
   width: min(1252px, 100%);
   margin: 0;
-  font-family: "Montserrat", sans-serif;
   font-size: clamp(40px, 3.75vw, 72px);
   font-weight: 400;
   line-height: 1;
@@ -48,12 +47,15 @@
   width: 100%;
   display: grid;
   grid-template-columns: minmax(0, 1.383fr) minmax(0, 1fr);
-  gap: clamp(20px, 1.98vw, 38px);
+  gap: 18px;
   align-items: start;
 }
 
 .left {
   min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
 }
 
 .mainImage {
@@ -86,8 +88,7 @@
   display: flex;
   align-items: center;
   gap: clamp(12px, 1.25vw, 24px);
-  padding: clamp(10px, 0.78vw, 15px) clamp(8px, 0.63vw, 12px)
-    clamp(10px, 0.78vw, 15px) clamp(8px, 0.57vw, 11px);
+  padding: 0 clamp(8px, 0.63vw, 12px) 0 clamp(8px, 0.57vw, 11px);
   box-sizing: border-box;
   border: 1px solid rgba(65, 65, 65, 0.28);
   border-radius: clamp(10px, 1.04vw, 20px);
@@ -220,11 +221,11 @@
   gap: clamp(14px, 1.04vw, 20px);
 }
 
-.article > p {
+.article p {
   margin: 0;
   font-family: "Poppins", sans-serif;
   font-size: clamp(14px, 1.04vw, 20px);
-  line-height: 1.5;
+  line-height: 30px;
   font-weight: 400;
   color: #61656e;
 }
@@ -266,7 +267,7 @@
   .blog {
     width: 100%;
     padding: 24px 0 123px;
-    gap: 32px;
+    gap: 30px;
     box-sizing: border-box;
   }
 
@@ -299,6 +300,7 @@
     width: 100%;
     padding: 0 24px;
     box-sizing: border-box;
+    gap: 41px;
   }
 
   .mainImage {
@@ -313,12 +315,11 @@
 
   .article {
     width: 100%;
-    padding: 24px 24px 0;
     box-sizing: border-box;
-    gap: 20px;
+    gap: 24px;
   }
 
-  .article > p {
+  .article p {
     font-size: 14px;
     line-height: 21px;
   }

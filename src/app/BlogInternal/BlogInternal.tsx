@@ -3,6 +3,12 @@ import Link from "next/link";
 import styles from "./BlogInternal.module.css";
 import RelatedBlogs from "./RelatedBlog";
 import type { Blog } from "@/data/blog";
+import { Montserrat } from "next/font/google";
+
+const montserrat = Montserrat({
+  weight: ["500"],
+  subsets: ["latin"],
+});
 
 export default function BlogInternal({ blog }: { blog: Blog }) {
   return (
@@ -10,7 +16,7 @@ export default function BlogInternal({ blog }: { blog: Blog }) {
       <div className={styles.header}>
         <span className={styles.category}>{blog.category}</span>
 
-        <h1>{blog.title}</h1>
+        <h1 className={montserrat.className}>{blog.title}</h1>
       </div>
 
       <div className={styles.mainSection}>
