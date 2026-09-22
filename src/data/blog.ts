@@ -94,7 +94,7 @@ const dummyRelated: RelatedBlog[] = [
   },
   {
     slug: "first-time-buyer-guide-dubai-real-estate",
-    category: "Market",
+    category: "Buying guide",
     title: "A First-Time Buyer's Guide to Dubai Real Estate",
     description:
       "From budgeting and mortgage pre-approval to choosing the right property and understanding the buying process.",
@@ -103,7 +103,7 @@ const dummyRelated: RelatedBlog[] = [
   },
   {
     slug: "dubai-hills-vs-dubai-marina",
-    category: "Market",
+    category: "Neighborhood",
     title: "Dubai Hills vs. Dubai Marina: Which Fits Your Lifestyle?",
     description:
       "Two of the city's most sought-after communities, compared on price, lifestyle, amenities, and location.",
@@ -126,7 +126,7 @@ export const blogs: Blog[] = [
 
   {
     slug: "first-time-buyer-guide-dubai-real-estate",
-    category: "Market",
+    category: "Buying guide",
     title: "A First-Time Buyer's Guide to Dubai Real Estate",
     image: featuredImage,
     featuredImage: featuredImage,
@@ -138,7 +138,7 @@ export const blogs: Blog[] = [
 
   {
     slug: "dubai-hills-vs-dubai-marina",
-    category: "Market",
+    category: "Neighborhood",
     title: "Dubai Hills vs. Dubai Marina: Which Fits Your Lifestyle?",
     image: image3,
     readTime: "4 min read",
@@ -149,7 +149,7 @@ export const blogs: Blog[] = [
 
   {
     slug: "dubai-rental-yields-2026",
-    category: "Market",
+    category: "Investments",
     title: "Where Dubai's Rental Yields Are Headed in 2026",
     image: image4,
     readTime: "4 min read",
@@ -160,7 +160,7 @@ export const blogs: Blog[] = [
 
   {
     slug: "golden-visa-property-buyers",
-    category: "Market",
+    category: "Legal & Process",
     title: "Understanding the Golden Visa and Its Impact on Property Buyers",
     image: image5,
     readTime: "4 min read",
@@ -171,7 +171,7 @@ export const blogs: Blog[] = [
 
   {
     slug: "international-buyers-dubai-property",
-    category: "Market",
+    category: "Buying guide",
     title: "What International Buyers Should Know Before Purchasing in Dubai",
     image: image6,
     readTime: "4 min read",

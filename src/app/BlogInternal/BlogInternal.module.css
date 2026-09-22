@@ -18,7 +18,7 @@
 }
 
 .category {
-  width: clamp(110px, 7.5vw, 144px);
+  width: fit-content;
   height: clamp(38px, 2.5vw, 48px);
   padding: 8px 16px;
   box-sizing: border-box;
@@ -113,7 +113,7 @@
   position: absolute;
   top: clamp(6px, 0.63vw, 12px);
   left: clamp(4px, 0.31vw, 6px);
-  width: clamp(55px, 3.44vw, 66px);
+  width: fit-content;
   height: 21px;
   padding: 0 5px;
   box-sizing: border-box;

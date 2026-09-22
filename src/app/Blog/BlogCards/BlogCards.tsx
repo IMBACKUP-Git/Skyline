@@ -1,22 +1,44 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
 import styles from "./BlogCards.module.css";
 import { blogs } from "@/data/blog";
+import { useState } from "react";
 
 export default function BlogCards() {
+  const filters = [
+    "ALL",
+    "Market",
+    "Buying guide",
+    "Neighborhood",
+    "Investments",
+    "Legal & Process",
+  ];
+
+  const [activeFilter, setActiveFilter] = useState("ALL");
+
+  const filteredBlogs =
+    activeFilter === "ALL"
+      ? blogs
+      : blogs.filter((blog) => blog.category === activeFilter);
+
   return (
     <section className={styles.blogs}>
       <div className={styles.filters}>
-        <button className={styles.active}>ALL</button>
-        <button>Market</button>
-        <button>Buying guide</button>
-        <button>Neighborhood</button>
-        <button>Investments</button>
-        <button>Legal & Process</button>
+        {filters.map((filter) => (
+          <button
+            key={filter}
+            className={activeFilter === filter ? styles.active : ""}
+            onClick={() => setActiveFilter(filter)}
+          >
+            {filter}
+          </button>
+        ))}
       </div>
 
       <div className={styles.grid}>
-        {blogs.map((blog) => (
+        {filteredBlogs.map((blog) => (
           <article className={styles.card} key={blog.slug}>
             <div className={styles.image}>
               <Image src={blog.image} alt={blog.title} fill />
