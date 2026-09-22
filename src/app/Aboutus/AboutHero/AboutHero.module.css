@@ -44,9 +44,9 @@
 }
 
 .button {
-  width: clamp(220px, 13.8vw, 265px);
+  width: fit-content;
   height: clamp(43px, 2.5vw, 48px);
-  padding: 8px 16px;
+  padding: 8px 32px;
   border: 1px solid #414141;
   border-radius: 80px;
   background: transparent;
@@ -60,6 +60,8 @@
   justify-content: center;
   align-items: center;
   text-align: center;
+  white-space: nowrap;
+  box-sizing: border-box;
 }
 
 .fade {
@@ -109,8 +111,8 @@
   }
 
   .button {
-    width: 265px;
+    width: fit-content;
     height: 48px;
-    font-size: 16px;
+    padding: 11px 17px;
   }
 }

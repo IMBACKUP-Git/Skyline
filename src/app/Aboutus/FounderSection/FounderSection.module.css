@@ -60,9 +60,9 @@
   content: "";
   position: absolute;
   left: 0;
-  top: 0;
+  top: clamp(20px, 2.71vw, 39px);
   width: 1px;
-  height: 110px;
+  height: calc(100% - clamp(20px, 2.71vw, 39px) - 10px);
   background: #000;
 }
 

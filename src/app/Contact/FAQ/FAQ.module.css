@@ -96,6 +96,7 @@
 
 .answer {
   width: 100%;
+  min-height: 0;
   display: flex;
   flex-direction: column;
   gap: clamp(10px, 1.56vi, 30px);
@@ -103,6 +104,11 @@
     clamp(10px, 0.94vi, 18px) clamp(14px, 0.94vi, 18px);
   box-sizing: border-box;
   overflow: hidden;
+}
+
+.item:not(.open) .answer {
+  padding-top: 0;
+  padding-bottom: 0;
 }
 
 .answer p {
@@ -191,8 +197,10 @@
 
   .answer {
     width: 100%;
+    min-height: 0;
     padding: 0 16px 10px;
     gap: 0;
+    box-sizing: border-box;
   }
 
   .divider {

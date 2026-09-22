@@ -6,6 +6,8 @@ import card1 from "./card1.svg";
 import card2 from "./card2.svg";
 import card3 from "./card3.svg";
 import card4 from "./card4.svg";
+import card1Mobile from "./card1Mobile.svg";
+import card2Mobile from "./card2Mobile.svg";
 import { Montserrat } from "next/font/google";
 import { useRef } from "react";
 import { useGSAP } from "@gsap/react";
@@ -24,23 +26,27 @@ const values = [
     title: "Transparency",
     description: "Clear terms and honest advice, with nothing hidden.",
     image: card1,
+    mobileImage: card1Mobile,
   },
   {
     title: "Long-Term Relationships",
     description: "We measure success by clients who return, not deals closed.",
     image: card2,
+    mobileImage: card2Mobile,
   },
   {
     title: "Full-Service Support",
     description:
       "From first viewing to post-handover management, we stay involved.",
     image: card3,
+    mobileImage: card1Mobile,
   },
   {
     title: "Local Expertise",
     description:
       "Deep knowledge of Dubai's communities, developers, and market cycles.",
     image: card4,
+    mobileImage: card2Mobile,
   },
 ];
 
@@ -84,9 +90,17 @@ export default function Vission() {
             <Image
               src={value.image}
               alt=""
-              className={styles.cardPattern}
+              className={`${styles.cardPattern} ${styles.desktopPattern}`}
               fill
             />
+
+            <Image
+              src={value.mobileImage}
+              alt=""
+              className={`${styles.cardPattern} ${styles.mobilePattern}`}
+              fill
+            />
+
             <h3>{value.title}</h3>
             <p>{value.description}</p>
           </div>

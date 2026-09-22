@@ -48,14 +48,16 @@ export default function FAQ() {
     if (currentIndex === index) {
       const currentAnswer = answerRefs.current[index];
 
-      if (currentAnswer) {
-        gsap.to(currentAnswer, {
-          height: 0,
-          opacity: 0,
-          duration: 0.55,
-          ease: "power3.inOut",
-        });
-      }
+      if (!currentAnswer) return;
+
+      gsap.to(currentAnswer, {
+        height: 0,
+        opacity: 0,
+        paddingTop: 0,
+        paddingBottom: 0,
+        duration: 0.45,
+        ease: "power2.inOut",
+      });
 
       setOpenIndex(-1);
       return;
@@ -66,43 +68,45 @@ export default function FAQ() {
 
     const nextAnswer = answerRefs.current[index];
 
-    if (currentAnswer && nextAnswer) {
+    if (!nextAnswer) return;
+
+    if (currentAnswer) {
       gsap.to(currentAnswer, {
         height: 0,
         opacity: 0,
-        duration: 0.5,
-        ease: "power3.inOut",
-      });
-
-      gsap.set(nextAnswer, {
-        height: 0,
-        opacity: 0,
-      });
-
-      setOpenIndex(index);
-
-      gsap.to(nextAnswer, {
-        height: "auto",
-        opacity: 1,
-        duration: 0.65,
-        delay: 0.08,
-        ease: "power3.out",
-      });
-    } else if (nextAnswer) {
-      setOpenIndex(index);
-
-      gsap.set(nextAnswer, {
-        height: 0,
-        opacity: 0,
-      });
-
-      gsap.to(nextAnswer, {
-        height: "auto",
-        opacity: 1,
-        duration: 0.65,
-        ease: "power3.out",
+        paddingTop: 0,
+        paddingBottom: 0,
+        duration: 0.4,
+        ease: "power2.inOut",
       });
     }
+
+    setOpenIndex(index);
+
+    requestAnimationFrame(() => {
+      const targetHeight = nextAnswer.scrollHeight;
+
+      gsap.set(nextAnswer, {
+        height: 0,
+        opacity: 0,
+        paddingTop: 0,
+        paddingBottom: 0,
+      });
+
+      gsap.to(nextAnswer, {
+        height: targetHeight,
+        opacity: 1,
+        paddingTop: 10,
+        paddingBottom: 10,
+        duration: 0.5,
+        ease: "power2.out",
+        onComplete: () => {
+          gsap.set(nextAnswer, {
+            height: "auto",
+          });
+        },
+      });
+    });
   };
 
   return (

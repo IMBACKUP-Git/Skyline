@@ -133,6 +133,10 @@
     padding-top: 12px;
   }
 
+  .stat:last-child {
+    border-bottom: none;
+  }
+
   .stat h3 {
     margin: 0;
     min-width: 34px;

@@ -30,8 +30,22 @@ export default function Mission() {
     const isMobile = window.innerWidth <= 640;
 
     if (isMobile) {
+      gsap.set(slides[0], {
+        opacity: 1,
+      });
+
       gsap.set(slides[1], {
         opacity: 0,
+      });
+    } else {
+      gsap.set(slides[0], {
+        opacity: 1,
+        yPercent: 0,
+      });
+
+      gsap.set(slides[1], {
+        opacity: 1,
+        yPercent: 100,
       });
     }
 
@@ -41,54 +55,59 @@ export default function Mission() {
         start: "center center",
         end: () => `+=${(containerRef.current?.offsetHeight ?? 0) * 0.1}`,
         pin: true,
-        scrub: true,
+        scrub: 1.2,
+        anticipatePin: 1,
+        invalidateOnRefresh: true,
       },
     });
 
     if (isMobile) {
-      tl.to(slides[0], {
-        opacity: 0,
-        duration: 1,
-        ease: "none",
-      }).to(
+      tl.to(
+        slides[0],
+        {
+          opacity: 0,
+          duration: 1,
+          ease: "none",
+          overwrite: "auto",
+        },
+        0,
+      ).to(
         slides[1],
         {
           opacity: 1,
           duration: 1,
           ease: "none",
+          overwrite: "auto",
         },
         0,
       );
     } else {
-      tl.from(
+      tl.to(
         slides[1],
         {
-          yPercent: 100,
+          yPercent: 0,
           duration: 1,
+          ease: "none",
+          overwrite: "auto",
         },
         0,
-      )
-        .to(
-          slides[0],
-          {
-            opacity: 0,
-            duration: 1,
-          },
-          0,
-        )
-        .to(
-          {},
-          {
-            duration: 2,
-          },
-        );
+      ).to(
+        slides[0],
+        {
+          opacity: 0,
+          duration: 1,
+          ease: "none",
+          overwrite: "auto",
+        },
+        0,
+      );
     }
 
     return () => {
       tl.scrollTrigger?.kill();
       tl.kill();
     };
-  });
+  }, []);
 
   return (
     <section className={styles.mission}>

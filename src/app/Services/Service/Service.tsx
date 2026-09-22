@@ -75,8 +75,7 @@ export default function Service() {
     gsap.killTweensOf([card, icon, title, description]);
 
     gsap.to(card, {
-      background:
-        "linear-gradient(227deg, #d1eaff 25%, #b8dcf8 55%, #b0d2ee 89%)",
+      "--hover-opacity": 1,
       duration: 0.4,
       ease: "power2.out",
     });
@@ -113,8 +112,7 @@ export default function Service() {
     gsap.killTweensOf([card, icon, title, description]);
 
     gsap.to(card, {
-      background:
-        "linear-gradient(227deg, #edf7ff 25%, #ffffff 55%, #edf7ff 89%)",
+      "--hover-opacity": 0,
       duration: 0.4,
       ease: "power2.out",
     });
