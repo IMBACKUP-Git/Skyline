@@ -46,7 +46,7 @@
   color: #61656e;
 }
 
-.content a {
+.button {
   width: clamp(174px, 11.01vw + 103.54px, 265px);
   height: clamp(43px, 0.61vw + 39.1px, 48px);
   padding: 8px 16px;

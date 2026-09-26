@@ -8,13 +8,10 @@ const brevo = new BrevoClient({
 export async function POST(request: Request) {
   try {
     const data = await request.json();
-    if (
-      !data.firstName ||
-      !data.lastName ||
-      !data.email ||
-      !data.mobile ||
-      !data.message
-    ) {
+
+    const { firstName, lastName, email, mobile, message } = data;
+
+    if (!firstName || !lastName || !email || !mobile || !message) {
       return NextResponse.json(
         {
           success: false,
@@ -24,26 +21,24 @@ export async function POST(request: Request) {
       );
     }
 
-    const { firstName, lastName, email, mobile, message } = data;
-
     await brevo.transactionalEmails.sendTransacEmail({
       sender: {
         name: "Skyline",
-        email: "email",
+        email: "veer@integramagna.com",
       },
       to: [
         {
-          name: "Skyline",
-          email: "OWNER_EMAIL",
+          name: "Mansi",
+          email: "mansiv824@gmail.com",
         },
       ],
       replyTo: {
         name: `${firstName} ${lastName}`,
         email,
       },
-      subject: "New Contact Form Submission",
+      subject: "New Website Enquiry - Skyline",
       htmlContent: `
-        <h2>New Contact Form Submission</h2>
+        <h2>New Website Enquiry</h2>
 
         <p><strong>First Name:</strong> ${firstName}</p>
         <p><strong>Last Name:</strong> ${lastName}</p>

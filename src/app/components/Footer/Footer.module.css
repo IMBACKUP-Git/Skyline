@@ -29,10 +29,7 @@
   padding: clamp(30px, 2.08vw, 40px) clamp(40px, 6.77vw, 130px) 30px;
   box-sizing: border-box;
   display: grid;
-  grid-template-columns:
-    minmax(0, 1.2fr)
-    minmax(150px, 0.7fr)
-    minmax(0, 1fr);
+  grid-template-columns: minmax(0, 1.2fr) minmax(150px, 0.7fr) minmax(0, 1fr);
   column-gap: clamp(30px, 4vw, 80px);
   align-items: start;
   color: #ffffff;
@@ -101,6 +98,11 @@
   cursor: pointer;
 }
 
+.emailBox button:disabled {
+  opacity: 80%;
+  cursor: not-allowed;
+}
+
 .footerLogo {
   position: relative;
   width: clamp(300px, 25.78vw, 495px);
@@ -127,6 +129,12 @@
   font-size: clamp(18px, 1.25vw, 24px);
   font-weight: 400;
   line-height: 100%;
+}
+
+.links {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
 }
 
 .company a {
@@ -158,10 +166,7 @@
 .contactColumns {
   width: 100%;
   display: grid;
-  grid-template-columns:
-    minmax(0, 1fr)
-    minmax(0, 1fr)
-    minmax(0, 1fr);
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr);
   column-gap: clamp(15px, 2.86vw, 55px);
   row-gap: 20px;
 }
@@ -203,6 +208,10 @@
 
 .social {
   text-decoration: underline;
+}
+
+.contactColumns a {
+  color: #ffffff;
 }
 
 .footerBottom {
@@ -329,7 +338,11 @@
     font-weight: 400;
   }
 
-  .company a {
+  .links {
+    gap: 8px;
+  }
+
+  .links a {
     height: auto;
     display: flex;
     align-items: center;
@@ -372,7 +385,7 @@
     font-size: 14px;
   }
 
-  .contactColumns p,
+  .contactColumns a,
   .visit p {
     margin: 0;
     padding-top: 5px;

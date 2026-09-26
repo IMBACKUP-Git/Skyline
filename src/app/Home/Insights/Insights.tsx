@@ -1,16 +1,11 @@
-"use client";
-
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-
 import Image from "next/image";
 import styles from "./Insights.module.css";
 import houseImage from "./houseImage.png";
 import image1 from "./image1.png";
 import image2 from "./image2.png";
 import { Montserrat } from "next/font/google";
-
-gsap.registerPlugin(ScrollTrigger);
+import Link from "next/link";
+import { blogs } from "@/data/blog";
 
 const montserrat = Montserrat({
   subsets: ["latin"],
@@ -59,7 +54,9 @@ export default function Insights() {
               real estate, not just what's trending.
             </p>
 
-            <button className={styles.viewAll}>View All</button>
+            <Link href="/Blog" className={styles.viewAll}>
+              View All
+            </Link>
           </div>
 
           <div className={styles.houseImage}>
@@ -70,26 +67,31 @@ export default function Insights() {
 
         {/* RIGHT */}
         <div className={styles.cards}>
-          {insights.map((insight, index) => (
-            <article className={styles.card} key={`${insight.title}-${index}`}>
+          {blogs.slice(0, 3).map((blog) => (
+            <article className={styles.card} key={blog.slug}>
               <div className={styles.cardImage}>
-                <Image src={insight.image} alt={insight.title} fill />
+                <Image src={blog.image} alt={blog.title} fill />
 
-                <span className={styles.category}>{insight.category}</span>
+                <span className={styles.category}>{blog.category}</span>
               </div>
 
               <div className={styles.cardContent}>
                 <div className={styles.top}>
-                  <h3>{insight.title}</h3>
+                  <h3>{blog.title}</h3>
 
-                  <p>{insight.description}</p>
+                  <p>
+                    {blog.intro ||
+                      "Explore insights, market trends, and useful information about Dubai real estate."}
+                  </p>
                 </div>
-                <div className={styles.bottom}>
-                  <small>{insight.readTime}</small>
 
-                  <button
+                <div className={styles.bottom}>
+                  <small>{blog.readTime}</small>
+
+                  <Link
+                    href={`/Blog/${blog.slug}`}
                     className={styles.cardArrow}
-                    aria-label={`Read ${insight.title}`}
+                    aria-label={`Read ${blog.title}`}
                   >
                     <svg
                       width="10"
@@ -106,7 +108,7 @@ export default function Insights() {
                         strokeLinejoin="round"
                       />
                     </svg>
-                  </button>
+                  </Link>
                 </div>
               </div>
             </article>

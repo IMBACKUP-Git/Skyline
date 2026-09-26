@@ -17,7 +17,8 @@ export default function ContactForm() {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    const formData = new FormData(e.currentTarget);
+    const form = e.currentTarget;
+    const formData = new FormData(form);
 
     const data = {
       firstName: formData.get("firstName"),
@@ -42,7 +43,7 @@ export default function ContactForm() {
 
       if (result.success) {
         console.log("Form submitted successfully");
-        e.currentTarget.reset();
+        form.reset();
       } else {
         console.log("Failed to submit form");
       }

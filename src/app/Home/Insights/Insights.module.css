@@ -69,6 +69,8 @@
   font-size: clamp(14px, 1.04vw, 20px);
   font-weight: 400;
   cursor: pointer;
+  text-decoration: none;
+  font-family: "Poppins", sans-serif;
 }
 
 .houseImage {
@@ -141,7 +143,7 @@
 .category {
   position: absolute;
   height: clamp(18px, 1.09vw, 21px);
-  width: clamp(58px, 3.91vw, 75px);
+  width: fit-content;
   top: clamp(5px, 0.31vw, 6px);
   left: clamp(5px, 0.31vw, 6px);
   padding-left: 5px;
@@ -477,7 +479,7 @@
   }
 
   .category {
-    width: 58px;
+    width: fit-content;
     height: 18px;
     top: 6px;
     left: 6px;
