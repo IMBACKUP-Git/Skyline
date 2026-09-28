@@ -1,0 +1,27 @@
+.wrapper {
+  display: none;
+}
+
+@media (max-width: 640px) {
+  .wrapper {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    text-align: center;
+    align-items: center;
+  }
+
+  .wrapper a {
+    width: 151px;
+    height: 37px;
+    border: 1px solid #414141;
+    border-radius: 83px;
+    padding: 8px 16px;
+    background: transparent;
+    font-family: "Poppins", sans-serif;
+    font-size: 14px;
+    cursor: pointer;
+    text-decoration: none;
+    color: #414141;
+  }
+}
