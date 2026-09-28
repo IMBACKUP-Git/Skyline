@@ -9,9 +9,6 @@ export async function POST(request: Request) {
   try {
     const data = await request.json()
     const email = typeof data?.email === 'string' ? data.email.trim().toLowerCase() : ''
-
-
-    
     if (!email || !EMAIL_REGEX.test(email)) {
       return NextResponse.json(
         {
