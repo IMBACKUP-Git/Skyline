@@ -4,6 +4,10 @@ import { useState, useEffect } from "react";
 import type { FormEvent } from "react";
 import { Montserrat } from "next/font/google";
 import styles from "./ConsultationForm.module.css";
+import {
+  validateContactForm,
+  type ContactFormErrors,
+} from "@/app/(frontend)/lib/formValidation";
 
 const montserrat = Montserrat({
   subsets: ["latin"],
@@ -21,14 +25,25 @@ export default function ConsultationForm({
 }: ConsultationFormProps) {
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
+  const [errors, setErrors] = useState<ContactFormErrors>({});
 
   useEffect(() => {
     if (isOpen) {
       setSuccess(false);
+      setErrors({});
     }
   }, [isOpen]);
 
   if (!isOpen) return null;
+
+  const clearError = (field: keyof ContactFormErrors) => {
+    setErrors((prev) => {
+      if (!prev[field]) return prev;
+      const next = { ...prev };
+      delete next[field];
+      return next;
+    });
+  };
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -36,14 +51,22 @@ export default function ConsultationForm({
     const form = e.currentTarget;
     const formData = new FormData(form);
 
-    const data = {
-      firstName: formData.get("firstName"),
-      lastName: formData.get("lastName"),
-      email: formData.get("email"),
-      mobile: formData.get("mobile"),
-      message: formData.get("message"),
-      source: "popup",
+    const values = {
+      firstName: String(formData.get("firstName") || ""),
+      lastName: String(formData.get("lastName") || ""),
+      email: String(formData.get("email") || ""),
+      mobile: String(formData.get("mobile") || ""),
+      message: String(formData.get("message") || ""),
     };
+
+    const validationErrors = validateContactForm(values);
+    setErrors(validationErrors);
+
+    if (Object.keys(validationErrors).length > 0) {
+      return;
+    }
+
+    const data = { ...values, source: "popup" };
 
     setLoading(true);
 
@@ -60,6 +83,7 @@ export default function ConsultationForm({
 
       if (response.ok && result.success) {
         form.reset();
+        setErrors({});
         setSuccess(true);
       } else {
         alert("Failed to send your message. Please try again.");
@@ -118,7 +142,7 @@ export default function ConsultationForm({
               <p>We're here to assist you</p>
             </div>
 
-            <form className={styles.form} onSubmit={handleSubmit}>
+            <form className={styles.form} onSubmit={handleSubmit} noValidate>
               <div className={styles.fields}>
                 <div className={styles.field}>
                   <label htmlFor="popup-firstName">First Name</label>
@@ -127,8 +151,15 @@ export default function ConsultationForm({
                     name="firstName"
                     type="text"
                     placeholder="Your first name*"
+                    minLength={2}
+                    maxLength={50}
                     required
+                    onInput={() => clearError("firstName")}
+                    aria-invalid={Boolean(errors.firstName)}
                   />
+                  {errors.firstName && (
+                    <span className={styles.error}>{errors.firstName}</span>
+                  )}
                 </div>
 
                 <div className={styles.field}>
@@ -138,8 +169,15 @@ export default function ConsultationForm({
                     name="lastName"
                     type="text"
                     placeholder="Your last name*"
+                    minLength={2}
+                    maxLength={50}
                     required
+                    onInput={() => clearError("lastName")}
+                    aria-invalid={Boolean(errors.lastName)}
                   />
+                  {errors.lastName && (
+                    <span className={styles.error}>{errors.lastName}</span>
+                  )}
                 </div>
 
                 <div className={styles.field}>
@@ -149,8 +187,14 @@ export default function ConsultationForm({
                     name="email"
                     type="email"
                     placeholder="Your email address*"
+                    maxLength={100}
                     required
+                    onInput={() => clearError("email")}
+                    aria-invalid={Boolean(errors.email)}
                   />
+                  {errors.email && (
+                    <span className={styles.error}>{errors.email}</span>
+                  )}
                 </div>
 
                 <div className={styles.field}>
@@ -159,9 +203,18 @@ export default function ConsultationForm({
                     id="popup-mobile"
                     name="mobile"
                     type="tel"
+                    inputMode="tel"
                     placeholder="Your mobile number*"
+                    pattern="\+?[0-9\s]{7,20}"
+                    minLength={7}
+                    maxLength={20}
                     required
+                    onInput={() => clearError("mobile")}
+                    aria-invalid={Boolean(errors.mobile)}
                   />
+                  {errors.mobile && (
+                    <span className={styles.error}>{errors.mobile}</span>
+                  )}
                 </div>
 
                 <div className={styles.messageField}>
@@ -170,7 +223,13 @@ export default function ConsultationForm({
                     id="popup-message"
                     name="message"
                     placeholder="Write your message here"
+                    maxLength={500}
+                    onInput={() => clearError("message")}
+                    aria-invalid={Boolean(errors.message)}
                   />
+                  {errors.message && (
+                    <span className={styles.error}>{errors.message}</span>
+                  )}
                 </div>
               </div>
 

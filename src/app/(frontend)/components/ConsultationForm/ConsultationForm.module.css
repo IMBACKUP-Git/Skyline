@@ -95,6 +95,18 @@
   gap: 11px;
 }
 
+.error {
+  font-family: "Poppins", sans-serif;
+  font-size: 12px;
+  line-height: 16px;
+  color: #d33131;
+}
+
+.field input[aria-invalid="true"],
+.messageField textarea[aria-invalid="true"] {
+  border-color: #d33131;
+}
+
 .field label,
 .messageField label {
   font-family: "Poppins", sans-serif;
