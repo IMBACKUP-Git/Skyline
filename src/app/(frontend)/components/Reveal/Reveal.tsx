@@ -11,6 +11,7 @@ export default function Reveal({
 }) {
   const ref = useRef<HTMLDivElement>(null);
   const [visible, setVisible] = useState(false);
+  const [settled, setSettled] = useState(false);
 
   useEffect(() => {
     const node = ref.current;
@@ -18,6 +19,7 @@ export default function Reveal({
 
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
       setVisible(true);
+      setSettled(true);
       return;
     }
 
@@ -38,11 +40,12 @@ export default function Reveal({
   return (
     <div
       ref={ref}
+      onTransitionEnd={() => setSettled(true)}
       style={{
         opacity: visible ? 1 : 0,
-        transform: visible ? "translateY(0)" : "translateY(28px)",
+        transform: settled ? undefined : visible ? "translateY(0)" : "translateY(28px)",
         transition: `opacity 0.7s cubic-bezier(0.16,1,0.3,1) ${delay}s, transform 0.7s cubic-bezier(0.16,1,0.3,1) ${delay}s`,
-        willChange: "opacity, transform",
+        willChange: settled ? undefined : "opacity, transform",
       }}
     >
       {children}
