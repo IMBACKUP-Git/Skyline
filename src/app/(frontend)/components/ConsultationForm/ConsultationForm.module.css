@@ -205,52 +205,70 @@
 
   .popup {
     width: 100%;
-    max-height: calc(100vh - 32px);
-    padding: 56px 24px 30px;
+    max-height: 78vh;
+    padding: 44px 20px 20px;
     border-radius: 8px;
   }
 
   .close {
-    top: 12px;
-    right: 12px;
+    top: 10px;
+    right: 10px;
   }
 
   .formWrapper {
-    gap: 24px;
+    gap: 16px;
+  }
+
+  .heading {
+    gap: 2px;
   }
 
   .heading h2 {
     font-family: "Poppins", sans-serif;
-    font-size: 24px;
-    line-height: 36px;
+    font-size: 20px;
+    line-height: 28px;
     font-weight: 400;
   }
 
   .heading p {
-    font-size: 14px;
-    line-height: 21px;
+    font-size: 13px;
+    line-height: 18px;
+  }
+
+  .form {
+    gap: 16px;
   }
 
   .fields {
     display: flex;
     flex-direction: column;
-    gap: 16px;
+    gap: 12px;
   }
 
   .field,
   .messageField {
-    gap: 6px;
+    gap: 4px;
   }
 
   .field input {
-    height: 40px;
+    height: 38px;
   }
 
   .messageField textarea {
-    height: 120px;
+    height: 80px;
   }
 
   .form button {
     align-self: center;
+    min-height: 40px;
+  }
+
+  .success {
+    min-height: 160px;
+    gap: 12px;
+  }
+
+  .success h2 {
+    font-size: 24px;
   }
 }

@@ -73,7 +73,7 @@ export default function ConsultationForm({
   };
 
   return (
-    <div className={styles.overlay} onClick={onClose}>
+    <div className={styles.overlay} onClick={onClose} data-lenis-prevent>
       <div
         className={styles.popup}
         onClick={(e) => e.stopPropagation()}
