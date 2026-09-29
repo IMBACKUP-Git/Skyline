@@ -1,48 +1,46 @@
-"use client";
+'use client'
 
-import { useState } from "react";
-import styles from "./Footer.module.css";
-import Image from "next/image";
-import Link from "next/link";
-import houseImage from "./houseImage1.png";
-import logo from "./logo.png";
+import { useState } from 'react'
+import styles from './Footer.module.css'
+import Image from 'next/image'
+import Link from 'next/link'
+import houseImage from './houseImage1.png'
+import logo from './logo.png'
 
 export default function Footer() {
-  const [email, setEmail] = useState("");
-  const [status, setStatus] = useState<"idle" | "submitting" | "submitted">(
-    "idle",
-  );
+  const [email, setEmail] = useState('')
+  const [status, setStatus] = useState<'idle' | 'submitting' | 'submitted'>('idle')
 
   const handleSubscribe = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
+    e.preventDefault()
 
-    if (!email.trim() || status !== "idle") return;
+    if (!email.trim() || status !== 'idle') return
 
-    setStatus("submitting");
+    setStatus('submitting')
 
     try {
-      const response = await fetch("/api/newsletter", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
+      const response = await fetch('/api/newsletter', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email }),
-      });
+      })
 
-      const result = await response.json();
+      const result = await response.json()
 
       if (result.success) {
-        setStatus("submitted");
+        setStatus('submitted')
         setTimeout(() => {
-          setStatus("idle");
-          setEmail("");
-        }, 3000);
+          setStatus('idle')
+          setEmail('')
+        }, 3000)
       } else {
-        setStatus("idle");
+        setStatus('idle')
       }
     } catch (error) {
-      console.error(error);
-      setStatus("idle");
+      console.error(error)
+      setStatus('idle')
     }
-  };
+  }
 
   return (
     <footer className={styles.footer}>
@@ -55,10 +53,7 @@ export default function Footer() {
       <div className={styles.footerContent}>
         <div className={styles.newsletter}>
           <h3>Insight on Dubai Real Estate</h3>
-          <p>
-            Get market trends, new listings, and buying tips delivered straight
-            to your inbox.
-          </p>
+          <p>Get market trends, new listings, and buying tips delivered straight to your inbox.</p>
 
           <form className={styles.emailBox} onSubmit={handleSubscribe}>
             <input
@@ -66,16 +61,16 @@ export default function Footer() {
               placeholder="Your Email Address"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              disabled={status !== "idle"}
+              disabled={status !== 'idle'}
               required
             />
 
-            <button type="submit" disabled={!email.trim() || status !== "idle"}>
-              {status === "submitting"
-                ? "Submitting..."
-                : status === "submitted"
-                  ? "Submitted!"
-                  : "Stay updated"}
+            <button type="submit" disabled={!email.trim() || status !== 'idle'}>
+              {status === 'submitting'
+                ? 'Submitting...'
+                : status === 'submitted'
+                  ? 'Submitted!'
+                  : 'Stay updated'}
             </button>
           </form>
 
@@ -210,20 +205,12 @@ export default function Footer() {
             <div>
               <span>Follow us</span>
               <p className={styles.social}>
-                <a
-                  href="https://www.instagram.com/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
+                <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer">
                   Instagram
                 </a>
               </p>
               <p className={styles.social}>
-                <a
-                  href="https://www.linkedin.com/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
+                <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer">
                   LinkedIn
                 </a>
               </p>
@@ -242,14 +229,21 @@ export default function Footer() {
       </div>
 
       <div className={styles.footerBottom}>
-        <p>© 2026 SKRE Real Estate. All rights reserved.</p>
-
         <div>
           <a href="/">Privacy Policy</a>
           <span>|</span>
           <a href="/">Terms & Condition</a>
         </div>
+
+        <p>© 2026 SKRE Real Estate. All rights reserved.</p>
+
+        <p className={styles.credit}>
+          Crafted by{' '}
+          <a href="https://www.integramagna.com/" target="_blank" rel="noopener noreferrer">
+            Integra Magna
+          </a>
+        </p>
       </div>
     </footer>
-  );
+  )
 }
